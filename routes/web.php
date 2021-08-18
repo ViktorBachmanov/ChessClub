@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\GameController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('chess');
 });
+/*
+Route::get('/new', function () {
+    return view('newgame');
+});
+*/
+Route::get('/new', [GameController::class, 'create']);
+
+Route::post('/store', [GameController::class, 'store']);
