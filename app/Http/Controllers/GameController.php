@@ -39,7 +39,10 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		$userName = $request->input('white');
+		
+		$user = User::where('name', $userName)->get()->first();
+        $user->evalRating(0, 1);
     }
 
     /**

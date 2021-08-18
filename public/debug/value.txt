@@ -1,0 +1,4 @@
+rating: 20
+gamesTotal: 0
+koef: 40
+rating: 20

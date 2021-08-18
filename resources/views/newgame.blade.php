@@ -42,12 +42,12 @@
     <body>
 	
 	<form id='content' method='post' action='/store'>
+		@csrf
 		
         <h3>Добавить партию</h3>
 		
 		<div>
-			<select id='white'>
-				<option value='*'>*</option>
+			<select name='white'>
 					@php
 						foreach($users as $user)
 						{
@@ -57,8 +57,7 @@
 			</select>
 			
 			
-			<select id='black'>
-				<option value='*'>*</option>
+			<select name='black'>
 					@php
 						foreach($users as $user)
 						{
@@ -73,6 +72,8 @@
 			<input type='radio' name='won' value='drawn'>
 			<input type='radio' name='won' value='black'>
 		</div>
+		
+		<input type='date' name='date'>
 		
 		<button>Ок</button>
 		
