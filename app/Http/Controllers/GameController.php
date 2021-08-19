@@ -28,7 +28,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('newgame', ['users' => User::all()]);
+        return view('new_game', ['users' => User::all()]);
     }
 
     /**
