@@ -51,7 +51,7 @@
 					@php
 						foreach($users as $user)
 						{
-							echo "<option value=$user->name>$user->name</option>";
+							echo "<option value=$user->id>$user->name</option>";
 						}
 					@endphp
 			</select>
@@ -61,7 +61,7 @@
 					@php
 						foreach($users as $user)
 						{
-							echo "<option value=$user->name>$user->name</option>";
+							echo "<option value=$user->id>$user->name</option>";
 						}
 					@endphp
 			</select>

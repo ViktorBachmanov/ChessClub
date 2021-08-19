@@ -39,10 +39,12 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-		$userName = $request->input('white');
+		$userId = $request->input('white');
 		
-		$user = User::where('name', $userName)->get()->first();
+		$user = User::where('id', $userId)->get()->first();
         $user->evalRating(0, 1);
+		
+		file_put_contents('debug/value.txt', "Игрок: " . $user->name . "\n", FILE_APPEND);
     }
 
     /**
