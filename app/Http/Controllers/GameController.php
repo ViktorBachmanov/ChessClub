@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 
 use App\Models\User;
-
+use App\Models\Game;
 
 
 class GameController extends Controller
@@ -39,11 +39,48 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-		$userId = $request->input('white');
+		$whiteUserId = $request->input('white');
+		$blackUserId = $request->input('black');
 		
-		$user = User::where('id', $userId)->get()->first();
-		file_put_contents('debug/value.txt', "Игрок: " . $user->name . "\n", FILE_APPEND);
-        $user->evalRating(0, 1);
+		$whiteUser = User::findOrFail($whiteUserId);
+		$blackUser = User::findOrFail($blackUserId);
+		
+		$whiteUserRating = $whiteUser->rating;
+		$blackUserRating = $blackUser->rating;
+		
+		$game = new Game;
+		
+		$game->white = $whiteUserId;
+		$game->black = $blackUserId;
+		
+		$whiteUserScore;
+		$blackUserScore;
+		switch($request->input('winner')) {
+			case 'white':
+				$whiteUserScore = 1;
+				$blackUserScore = 0;
+				$game->winner = $whiteUserId;
+				break;
+				
+			case 'black':
+				$whiteUserScore = 0;
+				$blackUserScore = 1;
+				$game->winner = $blackUserId;
+				break;
+				
+			case 'none':
+				$whiteUserScore = 0.5;
+				$blackUserScore = 0.5;
+				break;
+			
+		}
+		
+		file_put_contents('debug/value.txt', "Игрок: " . $whiteUser->name . "\n", FILE_APPEND);		
+		$whiteUser->evalRating($blackUserRating, $whiteUserScore);
+		file_put_contents('debug/value.txt', "Игрок: " . $blackUser->name . "\n", FILE_APPEND);
+		$blackUser->evalRating($whiteUserRating, $blackUserScore);
+		
+		$game->save();
     }
 
     /**

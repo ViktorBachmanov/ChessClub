@@ -83,6 +83,8 @@ class User extends Authenticatable
 		
 		$this->rating = $rating + $koef * ($score - $expectedScore);
 		
+		$this->save();
+		
 		file_put_contents('debug/value.txt', "rating: " . $this->rating . "\n\n", FILE_APPEND);
     }
 }

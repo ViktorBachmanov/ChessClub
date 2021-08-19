@@ -68,9 +68,9 @@
 		</div>
 		
 		<div>
-			<input type='radio' name='won' value='white' checked>
-			<input type='radio' name='won' value='drawn'>
-			<input type='radio' name='won' value='black'>
+			<input type='radio' name='winner' value='white' checked>
+			<input type='radio' name='winner' value='none'>
+			<input type='radio' name='winner' value='black'>
 		</div>
 		
 		<input type='date' name='date'>
