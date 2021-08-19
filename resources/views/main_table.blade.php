@@ -32,7 +32,9 @@
 	
 	
     <body>
-		
+		@php
+			use App\Models\Game;
+		@endphp
 	
 		<table>
 			<thead>
@@ -42,12 +44,16 @@
 					@foreach($users as $user)
 						<th>{{ $loop->iteration }}
 					@endforeach
+					<th>Очки
 					<th>Рейтинг
 				</tr>
 			</thead>
 			
 			<tbody>
 				@foreach($users as $user)
+					@php
+						$totalScore = 0;
+					@endphp
 					<tr>
 						<th>{{ $loop->iteration }}</th>
 						<td class='fio'>{{ $user->name; }}</td>
@@ -57,9 +63,17 @@
 									class='self'
 								@endif
 							>
+								@if($loop->iteration != $loop->parent->iteration)
+									@php
+										$score = Game::evalScoreUser1User2($user->id, $opponent->id);
+										$totalScore += $score;
+									@endphp
+									{{ $score; }}
+								@endif
 								
 							</td>
 						@endforeach
+						<td>{{ $totalScore; }}
 						<td>{{ $user->rating; }}</td>
 					</tr>
 				@endforeach
