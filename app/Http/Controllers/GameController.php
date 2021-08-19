@@ -81,6 +81,8 @@ class GameController extends Controller
 		$blackUser->evalRating($whiteUserRating, $blackUserScore);
 		
 		$game->save();
+		
+		return redirect('/');
     }
 
     /**
