@@ -16,7 +16,12 @@ class MainTableController extends Controller
      */
     public function index()
     {
-        return view('main_table', ['users' => User::all()->sortByDesc('rating')]);
+		$users = User::all();
+		$filteredUsers = $users->filter(function($user) {
+			return $user->getTotalGames() > 0;
+		});
+		
+        return view('main_table', ['users' => $filteredUsers->sortByDesc('rating')]);
     }
 
 }

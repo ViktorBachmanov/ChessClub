@@ -64,10 +64,8 @@ class User extends Authenticatable
 		$rating = $this->rating;
         $expectedScore = 1 / (1 + pow(10, ($opponentRating - $rating) / 400));
 		
-		$whiteTotal = $this->white->count();
-		$blackTotal = $this->black->count();
-		$gamesTotal = $whiteTotal + $blackTotal;
 		
+		$gamesTotal = $this->getTotalGames();
 		$koef;
 		if($rating >= 2400)
 			$koef = 10;
@@ -76,8 +74,8 @@ class User extends Authenticatable
 		else
 			$koef = 40;
 		
-		file_put_contents('debug/value.txt', "whiteTotal: " . $whiteTotal . "\n", FILE_APPEND);
-		file_put_contents('debug/value.txt', "blackTotal: " . $blackTotal . "\n", FILE_APPEND);
+		//file_put_contents('debug/value.txt', "whiteTotal: " . $whiteTotal . "\n", FILE_APPEND);
+		//file_put_contents('debug/value.txt', "blackTotal: " . $blackTotal . "\n", FILE_APPEND);
 		file_put_contents('debug/value.txt', "gamesTotal: " . $gamesTotal . "\n", FILE_APPEND);
 		file_put_contents('debug/value.txt', "koef: " . $koef . "\n", FILE_APPEND);
 		
@@ -87,4 +85,12 @@ class User extends Authenticatable
 		
 		file_put_contents('debug/value.txt', "rating: " . $this->rating . "\n\n", FILE_APPEND);
     }
+	
+	public function getTotalGames() {
+		$whiteTotal = $this->white->count();
+		$blackTotal = $this->black->count();
+		$gamesTotal = $whiteTotal + $blackTotal;
+		
+		return $gamesTotal;
+	}
 }
