@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\MainTableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,12 @@ use App\Http\Controllers\GameController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('chess');
 });
+*/
+Route::get('/', [MainTableController::class, 'index']);
 /*
 Route::get('/new', function () {
     return view('newgame');
