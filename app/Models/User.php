@@ -48,9 +48,14 @@ class User extends Authenticatable
 	public $timestamps = false;
 	
 	
-	public function games()
+	public function white()
     {
-        return $this->hasMany(Game::class);
+        return $this->hasMany(Game::class, 'white');
+    }
+	
+	public function black()
+    {
+        return $this->hasMany(Game::class, 'black');
     }
 	
 	
@@ -59,7 +64,9 @@ class User extends Authenticatable
 		$rating = $this->rating;
         $expectedScore = 1 / (1 + pow(10, ($opponentRating - $rating) / 400));
 		
-		$gamesTotal = $this->games->count();
+		$whiteTotal = $this->white->count();
+		$blackTotal = $this->black->count();
+		$gamesTotal = $whiteTotal + $blackTotal;
 		
 		$koef;
 		if($rating >= 2400)
@@ -69,11 +76,13 @@ class User extends Authenticatable
 		else
 			$koef = 40;
 		
+		file_put_contents('debug/value.txt', "whiteTotal: " . $whiteTotal . "\n", FILE_APPEND);
+		file_put_contents('debug/value.txt', "blackTotal: " . $blackTotal . "\n", FILE_APPEND);
 		file_put_contents('debug/value.txt', "gamesTotal: " . $gamesTotal . "\n", FILE_APPEND);
 		file_put_contents('debug/value.txt', "koef: " . $koef . "\n", FILE_APPEND);
 		
 		$this->rating = $rating + $koef * ($score - $expectedScore);
 		
-		file_put_contents('debug/value.txt', "rating: " . $this->rating . "\n", FILE_APPEND);
+		file_put_contents('debug/value.txt', "rating: " . $this->rating . "\n\n", FILE_APPEND);
     }
 }

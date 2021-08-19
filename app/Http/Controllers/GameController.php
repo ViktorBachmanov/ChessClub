@@ -42,9 +42,8 @@ class GameController extends Controller
 		$userId = $request->input('white');
 		
 		$user = User::where('id', $userId)->get()->first();
-        $user->evalRating(0, 1);
-		
 		file_put_contents('debug/value.txt', "Игрок: " . $user->name . "\n", FILE_APPEND);
+        $user->evalRating(0, 1);
     }
 
     /**
