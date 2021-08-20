@@ -25,8 +25,9 @@
 			}
 			
 			.self {
-				width: 39px;
-								
+				min-width: 39px;
+				max-width: 39px;
+				padding: 0;				
 				position: relative;
 				
 				/*
@@ -43,8 +44,8 @@
 		
 		<script>
 			window.onload = function() {
-				let cell = document.getElementById('gold');
-				drawMedal(cell, 'color');
+				/*let cell = document.getElementById('gold');
+				drawMedal(cell, 'color');*/
 			};
 		</script>
 		
@@ -87,16 +88,16 @@
 									@php
 									switch($loop->iteration) {
 										case 1:
-										 //echo "<img src='pics/gold.jpeg' class='medal'>";
+										 echo "<img src='pics/chess_gold.png' class='medal'>";
 										 
 										 break;
 										
 										case 2:
-										 echo "<img src='pics/silver.jpeg' class='medal'>";
+										 echo "<img src='pics/chess_silver.png' class='medal'>";
 										 break;
 										 
 										case 3:
-										 echo "<img src='pics/bronze.jpg' class='medal'>";
+										 echo "<img src='pics/bronze_3.jpg' class='medal'>";
 										 break;										 
 									}
 									@endphp
