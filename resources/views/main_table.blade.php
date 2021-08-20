@@ -11,10 +11,10 @@
 
 		<link rel="Stylesheet" href="css/base.css">
 		
+		<script src='js/medal.js'></script>
+		
         <!-- Styles -->
-        <style>
-        </style>
-
+        
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
@@ -26,7 +26,8 @@
 			
 			.self {
 				width: 39px;
-				padding: 0.3rem;
+								
+				position: relative;
 				
 				/*
 				background: linear-gradient(170deg, rgb(245,245,245) 0%,
@@ -39,6 +40,14 @@
 				vertical-align: middle;
 			}
         </style>
+		
+		<script>
+			window.onload = function() {
+				let cell = document.getElementById('gold');
+				drawMedal(cell, 'color');
+			};
+		</script>
+		
     </head>
 	
 	
@@ -71,14 +80,15 @@
 						@foreach($users as $opponent)
 							<td 
 								@if($loop->iteration == $loop->parent->iteration)
-									class='self'
+									class='self' id='gold'
 								@endif
 							>
 								@if($loop->iteration == $loop->parent->iteration)
 									@php
 									switch($loop->iteration) {
 										case 1:
-										 echo "<img src='pics/gold.jpeg' class='medal'>";
+										 //echo "<img src='pics/gold.jpeg' class='medal'>";
+										 
 										 break;
 										
 										case 2:
