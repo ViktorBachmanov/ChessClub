@@ -25,9 +25,18 @@
 			}
 			
 			.self {
+				width: 39px;
+				padding: 0.3rem;
+				
+				/*
 				background: linear-gradient(170deg, rgb(245,245,245) 0%,
 													rgb(225,225,225) 50%,
-													rgb(175,175,200) 100%);
+													rgb(175,175,200) 100%);*/
+			}
+			
+			.medal {
+				width: 100%;
+				vertical-align: middle;
 			}
         </style>
     </head>
@@ -65,7 +74,23 @@
 									class='self'
 								@endif
 							>
-								@if($loop->iteration != $loop->parent->iteration)
+								@if($loop->iteration == $loop->parent->iteration)
+									@php
+									switch($loop->iteration) {
+										case 1:
+										 echo "<img src='pics/gold.jpeg' class='medal'>";
+										 break;
+										
+										case 2:
+										 echo "<img src='pics/silver.jpeg' class='medal'>";
+										 break;
+										 
+										case 3:
+										 echo "<img src='pics/bronze.jpg' class='medal'>";
+										 break;										 
+									}
+									@endphp
+								@else
 									@php
 										$score = Game::evalScoreUser1User2($user->id, $opponent->id);
 										$totalScore += $score;
