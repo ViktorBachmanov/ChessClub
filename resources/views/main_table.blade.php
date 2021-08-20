@@ -97,7 +97,7 @@
 										 break;
 										 
 										case 3:
-										 echo "<img src='pics/bronze_3_t.png' class='medal'>";
+										 echo "<img src='pics/bronze_3_2_t.png' class='medal'>";
 										 break;										 
 									}
 									@endphp
