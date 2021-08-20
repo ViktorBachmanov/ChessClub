@@ -30,10 +30,10 @@
 				padding: 0;				
 				position: relative;
 				
-				/*
+				
 				background: linear-gradient(170deg, rgb(245,245,245) 0%,
 													rgb(225,225,225) 50%,
-													rgb(175,175,200) 100%);*/
+													rgb(175,175,200) 100%);
 			}
 			
 			.medal {
@@ -88,16 +88,16 @@
 									@php
 									switch($loop->iteration) {
 										case 1:
-										 echo "<img src='pics/chess_gold.png' class='medal'>";
+										 echo "<img src='pics/chess_gold_t.png' class='medal'>";
 										 
 										 break;
 										
 										case 2:
-										 echo "<img src='pics/chess_silver.png' class='medal'>";
+										 echo "<img src='pics/chess_silver_t.png' class='medal'>";
 										 break;
 										 
 										case 3:
-										 echo "<img src='pics/bronze_3.jpg' class='medal'>";
+										 echo "<img src='pics/bronze_3_t.png' class='medal'>";
 										 break;										 
 									}
 									@endphp
