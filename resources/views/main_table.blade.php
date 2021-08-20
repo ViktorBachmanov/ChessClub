@@ -42,7 +42,7 @@
 			}
 			
 			.totalScore {
-				background-color: #e0d3d357;
+				background-color: rgb(225,225,225);
 			}
         </style>
 		
