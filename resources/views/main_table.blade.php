@@ -27,7 +27,7 @@
 			.self {
 				background: linear-gradient(170deg, rgb(245,245,245) 0%,
 													rgb(225,225,225) 50%,
-													rgb(150,150,185) 100%);
+													rgb(175,175,200) 100%);
 			}
         </style>
     </head>
