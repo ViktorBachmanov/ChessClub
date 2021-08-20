@@ -40,6 +40,10 @@
 				width: 100%;
 				vertical-align: middle;
 			}
+			
+			.totalScore {
+				background-color: #e0d3d357;
+			}
         </style>
 		
 		<script>
@@ -65,7 +69,7 @@
 					@foreach($users as $user)
 						<th>{{ $loop->iteration }}
 					@endforeach
-					<th>Очки
+					<th class='totalScore'>Очки
 					<th>Рейтинг
 				</tr>
 			</thead>
@@ -97,7 +101,7 @@
 										 break;
 										 
 										case 3:
-										 echo "<img src='pics/bronze_3_2_t.png' class='medal'>";
+										 echo "<img src='pics/bronze_3_t.png' class='medal'>";
 										 break;										 
 									}
 									@endphp
@@ -111,7 +115,7 @@
 								
 							</td>
 						@endforeach
-						<td>{{ $totalScore; }}
+						<td class='totalScore'>{{ $totalScore; }}
 						<td>{{ $user->rating; }}</td>
 					</tr>
 				@endforeach
