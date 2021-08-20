@@ -36,6 +36,15 @@
 				margin: 1rem;
 			}
         </style>
+		
+		<script>
+		/*
+			window.onload = function() {
+				
+			};
+			*/
+		</script>
+		
     </head>
 	
 	
@@ -73,7 +82,7 @@
 			<input type='radio' name='winner' value='black'>
 		</div>
 		
-		<input type='date' name='date'>
+		<input type='date' name='date' value='{{ date("Y-m-d"); }}'>
 		
 		<button>Ок</button>
 		

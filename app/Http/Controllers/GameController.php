@@ -80,6 +80,8 @@ class GameController extends Controller
 		file_put_contents('debug/value.txt', "Игрок: " . $blackUser->name . "\n", FILE_APPEND);
 		$blackUser->evalRating($whiteUserRating, $blackUserScore);
 		
+		$game->date = $request->input('date');
+		
 		$game->save();
 		
 		return redirect('/');
