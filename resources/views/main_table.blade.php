@@ -118,6 +118,7 @@
 						<th>{{ $loop->iteration }}
 					@endforeach
 					<th class='totalScore'>Очки
+					<th>Игры
 					<th>Рейтинг
 				</tr>
 			</thead>
@@ -171,6 +172,7 @@
 							</td>
 						@endforeach
 						<td class='totalScore'>{{ $totalScore; }}
+						<td>{{ $user->getTotalGames(); }}
 						<td>{{ $user->rating; }}</td>
 					</tr>
 				@endforeach
