@@ -68,9 +68,9 @@
 			.silver {
 				background: linear-gradient(170deg, rgb(220,220,220) 0%,													
 													rgb(253,245,237) 100%);
-				box-shadow: 1px 1px 1px rgb(220,220,220);
+				box-shadow: 1px 1px 1px rgb(210,205,200);
 				color: rgb(253,245,237);
-				text-shadow: 1px 1px 1px rgb(220,220,220);
+				text-shadow: 1px 1px 1px rgb(210,205,200);
 			}
 			
 			.bronze {
