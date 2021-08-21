@@ -82,10 +82,11 @@
 			}
 			
 			.wood {
-				background-image: url('pics/oak1.jpg');
-				box-shadow: 1px 1px 1px rgb(237,173,102);
-				color: rgb(255,219,44);
-				text-shadow: 1px 1px 1px rgb(237,173,102);
+				background-image: url('pics/pine_1.jpg');
+				background-size: cover;
+				box-shadow: 1px 1px 1px rgb(248,128,31);
+				color: rgb(247,183,112);
+				text-shadow: 1px 1px 1px rgb(248,128,31);
 			}
 			
 			.totalScore {
