@@ -9,6 +9,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
+		<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
+		
 		<link rel="Stylesheet" href="css/base.css">
 		
 		<script src='js/medal.js'></script>
@@ -32,13 +34,35 @@
 				
 				
 				background: linear-gradient(170deg, rgb(245,245,245) 0%,
-													rgb(225,225,225) 50%,
-													rgb(175,175,200) 100%);
+													rgb(225,235,235) 50%,
+													rgb(175,195,220) 100%);
 			}
 			
 			.medal {
 				width: 100%;
 				vertical-align: middle;
+			}
+			
+			.med {
+				width: 2rem;
+				height: 2rem;
+				vertical-align: middle;
+				border-radius: 1rem;
+				box-shadow: 1px 1px 1px rgb(255,180,68);
+				margin: auto auto;
+				background: linear-gradient(170deg, rgb(252, 220, 107) 0%,
+													
+													rgb( 255, 254, 182) 100%);
+													
+				font-family: 'GFS Didot', serif;
+				/*color: rgb(234,158,46);*/
+				color: rgb(255, 254, 182);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-shadow: 1px 1px 1px rgb(255,180,68);
+				/*border: 1px dotted rgb(234,158,46);*/
+				
 			}
 			
 			.totalScore {
@@ -92,7 +116,8 @@
 									@php
 									switch($loop->iteration) {
 										case 1:
-										 echo "<img src='pics/chess_gold_t.png' class='medal'>";
+										 //echo "<img src='pics/chess_gold_t.png' class='medal'>";
+										 echo '<div class="med">I</>';
 										 
 										 break;
 										
