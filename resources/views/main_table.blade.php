@@ -84,9 +84,9 @@
 			.wood {
 				background-image: url('pics/pine_1.jpg');
 				background-size: cover;
-				box-shadow: 1px 1px 1px rgb(248,128,31);
+				box-shadow: 1px 1px 1px rgb(228,108,31);
 				color: rgb(247,183,112);
-				text-shadow: 1px 1px 1px rgb(248,128,31);
+				text-shadow: 1px 1px 1px rgb(228,108,31);
 			}
 			
 			.totalScore {
