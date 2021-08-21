@@ -81,6 +81,13 @@
 				text-shadow: 1px 1px 1px rgb(237,173,102);
 			}
 			
+			.wood {
+				background-image: url('pics/oak1.jpg');
+				box-shadow: 1px 1px 1px rgb(237,173,102);
+				color: rgb(255,219,44);
+				text-shadow: 1px 1px 1px rgb(237,173,102);
+			}
+			
 			.totalScore {
 				background-color: rgb(235,235,235);
 			}
@@ -145,7 +152,11 @@
 										case 3:
 										 //echo "<img src='pics/bronze_3_t.png' class='medal'>";
 										 echo '<div class="medal bronze">III</>';
-										 break;										 
+										 break;	
+
+										case 4:
+										 echo '<div class="medal wood">IV</>';
+										 break;	
 									}
 									@endphp
 								@else
