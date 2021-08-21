@@ -35,9 +35,9 @@
 				/*position: relative;*/
 				
 				
-				background: linear-gradient(170deg, rgb(245,245,245) 0%,
-													rgb(225,235,235) 50%,
-													rgb(175,195,220) 100%);
+				background: linear-gradient(170deg, rgb(245,245,255) 0%,
+													rgb(235,240,245) 55%,
+													rgb(205,215,225) 100%);
 			}
 			/*
 			.medal {
