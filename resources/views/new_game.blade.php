@@ -96,7 +96,7 @@
 				};
 				
 				$('select').on('click', function() {
-					$(this).removeClass('self');
+					$('select').removeClass('self');
 				});
 			};
 		</script>
