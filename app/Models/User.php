@@ -76,10 +76,41 @@ class User extends Authenticatable
 		
 		//file_put_contents('debug/value.txt', "whiteTotal: " . $whiteTotal . "\n", FILE_APPEND);
 		//file_put_contents('debug/value.txt', "blackTotal: " . $blackTotal . "\n", FILE_APPEND);
+		file_put_contents('debug/value.txt', "expected score: " . $expectedScore . "\n", FILE_APPEND);
 		file_put_contents('debug/value.txt', "gamesTotal: " . $gamesTotal . "\n", FILE_APPEND);
 		file_put_contents('debug/value.txt', "koef: " . $koef . "\n", FILE_APPEND);
 		
 		$this->rating = $rating + $koef * ($score - $expectedScore);
+		
+		$this->save();
+		
+		file_put_contents('debug/value.txt', "rating: " . $this->rating . "\n\n", FILE_APPEND);
+    }
+	
+	
+	public function evalOldRating($opponentRating, $score)
+    {
+		$rating = $this->rating;
+        $expectedScore = 1 / (1 + pow(10, ($opponentRating - $rating) / 400));
+		
+		
+		$gamesTotal = $this->getTotalGames();
+		$koef;
+		if($rating >= 2400)
+			$koef = 10;
+		else if($gamesTotal > 30)
+			$koef = 20;
+		else
+			$koef = 40;
+		
+		//file_put_contents('debug/value.txt', "whiteTotal: " . $whiteTotal . "\n", FILE_APPEND);
+		//file_put_contents('debug/value.txt', "blackTotal: " . $blackTotal . "\n", FILE_APPEND);
+		file_put_contents('debug/value.txt', "\nEval old rating\n", FILE_APPEND);
+		file_put_contents('debug/value.txt', "expected score: " . $expectedScore . "\n", FILE_APPEND);
+		file_put_contents('debug/value.txt', "gamesTotal: " . $gamesTotal . "\n", FILE_APPEND);
+		file_put_contents('debug/value.txt', "koef: " . $koef . "\n", FILE_APPEND);
+		
+		$this->rating = $rating - $koef * ($score - $expectedScore);
 		
 		$this->save();
 		

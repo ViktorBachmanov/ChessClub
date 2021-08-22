@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 
 use App\Models\User;
 use App\Models\Game;
@@ -127,8 +129,54 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(/*$id*/)
     {
-        //
+        $games = DB::table('games')
+                ->selectRaw('MAX(id) as id')
+                ->get();
+				
+		$game = Game::findOrFail($games[0]->id);
+		$winnerId = $game->winner;
+		
+		$whiteUserId = $game->white;
+		$blackUserId = $game->black;
+		
+		//file_put_contents('debug/value.txt', "Last game: " . $games . "\n", FILE_APPEND);
+		file_put_contents('debug/value.txt', "\nDelete game with id: " . $games[0]->id . "\n", FILE_APPEND);
+		file_put_contents('debug/value.txt', "white id: " . $whiteUserId . "\n", FILE_APPEND);
+		file_put_contents('debug/value.txt', "black id: " . $blackUserId . "\n", FILE_APPEND);
+		file_put_contents('debug/value.txt', "winner id: " . $winnerId . "\n", FILE_APPEND);
+
+		Game::destroy($games[0]->id);
+		
+		
+		$whiteUser = User::findOrFail($whiteUserId);
+		$blackUser = User::findOrFail($blackUserId);
+		
+		$whiteUserRating = $whiteUser->rating;
+		$blackUserRating = $blackUser->rating;
+		
+		$whiteUserScore;
+		$blackUserScore;
+		if($winnerId == $whiteUserId) {
+			$whiteUserScore = 1;
+			$blackUserScore = 0;
+		}
+		else if($winnerId == $blackUserId) {
+			$whiteUserScore = 0;
+			$blackUserScore = 1;
+		}
+		else {
+			$whiteUserScore = 0.5;
+			$blackUserScore = 0.5;
+		}
+		
+		$whiteUser->evalOldRating($blackUserRating, $whiteUserScore);
+		$blackUser->evalOldRating($whiteUserRating, $blackUserScore);
+		
+				
+		return redirect('/');
+			
+		
     }
 }

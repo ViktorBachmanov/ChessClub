@@ -28,4 +28,6 @@ Route::get('/new', function () {
 */
 Route::get('/new', [GameController::class, 'create'])->middleware('auth.basic');
 
+Route::get('/del', [GameController::class, 'destroy'])->middleware('auth.basic');
+
 Route::post('/store', [GameController::class, 'store']);
