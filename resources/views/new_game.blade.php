@@ -81,7 +81,7 @@
 	<form id='content' method='post' action='/store'>
 		@csrf
 		
-        <h3>Добавить партию</h3>
+        <h3>Новая партия</h3>
 		
 		<div class='players'>			
 			<div class='player'>
@@ -124,7 +124,8 @@
 		
 		<input type='date' name='date' value='{{ date("Y-m-d"); }}'>
 		
-		<button>Ок</button>
+		<button type='submit'>Добавить партию в базу</button>
+		<button type='button' onclick='location.href="/";'>Отмена</button>
 		
 	</form>
 	
