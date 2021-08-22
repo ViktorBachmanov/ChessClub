@@ -25,7 +25,7 @@
 			}
 			
 			select {
-				margin: 0.75rem;
+				margin: 0.75rem 0 1.5rem 0;
 			}
 			
 			input[type='radio'] {
@@ -39,14 +39,17 @@
 			.players {
 				display: flex;
 				align-items: flex-end;
-				margin: 2rem;
+				/*justify-content: space-evenly;*/
+				margin: 1rem;
 			}
 			
 			.player {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				margin: 0 1rem;
+				flex: 1 1 auto;
+				margin: 0;
+				text-align: center;
 			}
 			
 			.drawn {
@@ -94,7 +97,9 @@
 				<input type='radio' name='winner' value='white' checked>
 			</div>
 			
-			Победа
+			<div class='player' style='flex: 1 1 auto; width: 0; min-width: 2rem; text-align: center'>
+				Победа
+			</div>
 			
 			<div class='player'>
 				<img src='pics/black.png' style='width: 2rem;'>
