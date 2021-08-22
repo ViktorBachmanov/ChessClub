@@ -37,12 +37,13 @@
 			}
         </style>
 		
+		<script src='js/util.js'></script>
+		
 		<script>
-		/*
 			window.onload = function() {
-				
+				selectRandomlyUserForColor('white');			
+				selectRandomlyUserForColor('black');			
 			};
-			*/
 		</script>
 		
     </head>
