@@ -25,15 +25,39 @@
 			}
 			
 			select {
-				margin: 0.5rem;
+				margin: 0.75rem;
 			}
 			
 			input[type='radio'] {
-				margin: 1rem;
+				margin-bottom: 0.25rem;
 			}
 			
 			button {
 				margin: 1rem;
+			}
+			
+			.players {
+				display: flex;
+				align-items: flex-end;
+				margin: 2rem;
+			}
+			
+			.player {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 0 1rem;
+			}
+			
+			.drawn {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 2rem;
+			}
+			
+			input[type='date'] {
+				margin-bottom: 2rem;
 			}
         </style>
 		
@@ -56,31 +80,41 @@
 		
         <h3>Добавить партию</h3>
 		
-		<div>
-			<select name='white'>
-					@php
-						foreach($users as $user)
-						{
-							echo "<option value=$user->id>$user->name</option>";
-						}
-					@endphp
-			</select>
+		<div class='players'>			
+			<div class='player'>
+				<img src='pics/white.png' style='width: 2rem;'>
+				<select name='white'>
+						@php
+							foreach($users as $user)
+							{
+								echo "<option value=$user->id>$user->name</option>";
+							}
+						@endphp
+				</select>
+				<input type='radio' name='winner' value='white' checked>
+			</div>
 			
+			Победа
 			
-			<select name='black'>
-					@php
-						foreach($users as $user)
-						{
-							echo "<option value=$user->id>$user->name</option>";
-						}
-					@endphp
-			</select>
+			<div class='player'>
+				<img src='pics/black.png' style='width: 2rem;'>
+				<select name='black'>
+						@php
+							foreach($users as $user)
+							{
+								echo "<option value=$user->id>$user->name</option>";
+							}
+						@endphp
+				</select>
+				<input type='radio' name='winner' value='black'>
+			</div>
+			
 		</div>
 		
-		<div>
-			<input type='radio' name='winner' value='white' checked>
-			<input type='radio' name='winner' value='none'>
-			<input type='radio' name='winner' value='black'>
+		<div class='drawn' style=''>
+			Ничья
+			<input type='radio' name='winner' value='none' style='margin-top: 0.5rem'>
+			
 		</div>
 		
 		<input type='date' name='date' value='{{ date("Y-m-d"); }}'>
