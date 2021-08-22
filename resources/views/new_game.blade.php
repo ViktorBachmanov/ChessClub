@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Новая партия</title>
+		
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -62,6 +65,16 @@
 			input[type='date'] {
 				margin-bottom: 2rem;
 			}
+			
+			select {
+				background-color: white;
+				transition-property: background-color;
+				transition-duration: 0.5s;
+			}
+			
+			select.self {
+				background-color: LightSalmon;
+			}
         </style>
 		
 		<script src='js/util.js'></script>
@@ -69,7 +82,22 @@
 		<script>
 			window.onload = function() {
 				selectRandomlyUserForColor('white');			
-				selectRandomlyUserForColor('black');			
+				selectRandomlyUserForColor('black');
+
+				let form = document.forms[0];
+				form.onsubmit = () => {
+						if(form.white.value == form.black.value) {
+						//alert('Player self');
+						form.white.classList.add('self');
+						form.black.classList.add('self');
+						return false;
+					}
+					return true;
+				};
+				
+				$('select').on('click', function() {
+					$(this).removeClass('self');
+				});
 			};
 		</script>
 		
@@ -94,7 +122,7 @@
 							}
 						@endphp
 				</select>
-				<input type='radio' name='winner' value='white' checked>
+				<input type='radio' name='winner' value='white'>
 			</div>
 			
 			<div class='player' style='flex: 1 1 auto; width: 0; min-width: 2rem; text-align: center'>
@@ -118,7 +146,7 @@
 		
 		<div class='drawn' style=''>
 			Ничья
-			<input type='radio' name='winner' value='none' style='margin-top: 0.5rem'>
+			<input checked type='radio' name='winner' value='none' style='margin-top: 0.5rem'>
 			
 		</div>
 		
