@@ -79,27 +79,34 @@
 		
 		<script src='js/util.js'></script>
 		
+		
 		<script>
 			//window.onload = function() {
 			$(document).ready(function() {
-				//$('input, select').attr('disabled', 'true');
-				selectRandomlyUserForColor('white');			
-				selectRandomlyUserForColor('black');
+								
+				@if($action == 'new')
+					
+					selectRandomlyUserForColor('white');			
+					selectRandomlyUserForColor('black');
 
-				let form = document.forms[0];
-				form.onsubmit = () => {
-						if(form.white.value == form.black.value) {
-						//alert('Player self');
-						form.white.classList.add('self');
-						form.black.classList.add('self');
-						return false;
-					}
-					return true;
-				};
+					let form = document.forms[0];
+					form.onsubmit = () => {
+							if(form.white.value == form.black.value) {
+							//alert('Player self');
+							form.white.classList.add('self');
+							form.black.classList.add('self');
+							return false;
+						}
+						return true;
+					};
+					
+					$('select').on('click', function() {
+						$('select').removeClass('self');
+					});
 				
-				$('select').on('click', function() {
-					$('select').removeClass('self');
-				});
+				@else
+					$('input, select').attr('disabled', 'true');				
+				@endif
 			});
 		</script>
 		
@@ -152,7 +159,8 @@
 			
 		</div>
 		
-		<input type='date' name='date' value='{{ date("Y-m-d"); }}'>
+		<input type='date' name='date' 
+			value='{{ $action == "new" ? date("Y-m-d") : $game->date; }}'>
 		
 		<button type='submit'>Добавить партию в базу</button>
 		<button type='button' onclick='location.href="/";'>Отмена</button>

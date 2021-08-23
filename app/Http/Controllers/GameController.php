@@ -30,7 +30,16 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('new_game', ['users' => User::all()]);
+        return view('game', ['action' => 'new', 
+							 'users' => User::all()]);
+    }
+	
+	
+	public function delete()
+    {
+		return view('game', ['action' => 'delete',
+							 'users' => User::all(),
+							 'game' => $this->getLastGame()]);
     }
 
     /**
@@ -131,11 +140,8 @@ class GameController extends Controller
      */
     public function destroy(/*$id*/)
     {
-        $games = DB::table('games')
-                ->selectRaw('MAX(id) as id')
-                ->get();
-				
-		$game = Game::findOrFail($games[0]->id);
+		$game = $this->getLastGame();
+        
 		$winnerId = $game->winner;
 		
 		$whiteUserId = $game->white;
@@ -179,4 +185,15 @@ class GameController extends Controller
 			
 		
     }
+	
+	
+	private function getLastGame() {
+		$games = DB::table('games')
+                ->selectRaw('MAX(id) as id')
+                ->get();
+				
+		$game = Game::findOrFail($games[0]->id);
+		
+		return $game;
+	}
 }
