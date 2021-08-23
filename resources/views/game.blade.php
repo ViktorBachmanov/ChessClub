@@ -3,8 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		@php
+			$title = $action == 'store' ? 'Новая партия' : 'Последняя партия';
+		@endphp
 
-        <title>Новая партия</title>
+        <title>{{ $title }}</title>
 		
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -105,7 +109,19 @@
 					});
 				
 				@else
-					$('input:not([name="_token"]), select').attr('disabled', 'true');				
+					$('input:not([name="_token"]), select').attr('disabled', 'true');
+					
+					let winner;
+					if( {{ (int)($game->winner == $game->white) }} ) {
+						winner = 'white';
+					}
+					else if( {{ (int)($game->winner == $game->black) }} ) {
+						winner = 'black';
+					}
+					else {
+						winner = 'none';
+					}
+					document.querySelector(`input[type='radio'][value=${winner}]`).checked = true;
 				@endif
 			});
 		</script>
@@ -118,7 +134,7 @@
 	<form id='content' method='post'>
 		@csrf
 		
-        <h3>Новая партия</h3>
+        <h3>{{ $title }}</h3>
 		
 		<div class='players'>			
 			<div class='player'>
@@ -165,7 +181,9 @@
 		
 		<div class='drawn' style=''>
 			Ничья
-			<input checked type='radio' name='winner' value='none' style='margin-top: 0.5rem'>
+			<input type='radio' name='winner' value='none' style='margin-top: 0.5rem'
+				{{ $action == 'store' ? 'checked' : '' }}
+			>
 			
 		</div>
 		
