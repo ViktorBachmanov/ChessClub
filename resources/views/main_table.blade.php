@@ -133,9 +133,7 @@
 						<td class='fio'>{{ $user->name; }}</td>
 						@foreach($users as $opponent)
 							<td 
-								@if($loop->iteration == $loop->parent->iteration)
-									class='self' 
-								@endif
+								@class(['self' => $loop->iteration == $loop->parent->iteration])
 							>
 								@if($loop->iteration == $loop->parent->iteration)
 									@php
