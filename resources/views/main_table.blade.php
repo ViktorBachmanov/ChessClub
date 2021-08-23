@@ -134,7 +134,7 @@
 						@foreach($users as $opponent)
 							<td 
 								@if($loop->iteration == $loop->parent->iteration)
-									class='self' id='gold'
+									class='self' 
 								@endif
 							>
 								@if($loop->iteration == $loop->parent->iteration)
