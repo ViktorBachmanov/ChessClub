@@ -80,7 +80,8 @@
 		<script src='js/util.js'></script>
 		
 		<script>
-			window.onload = function() {
+			//window.onload = function() {
+			$(document).ready(function() {
 				selectRandomlyUserForColor('white');			
 				selectRandomlyUserForColor('black');
 
@@ -98,7 +99,7 @@
 				$('select').on('click', function() {
 					$('select').removeClass('self');
 				});
-			};
+			});
 		</script>
 		
     </head>
