@@ -84,7 +84,7 @@
 			//window.onload = function() {
 			$(document).ready(function() {
 								
-				@if($action == 'new')
+				@if($action == 'store')
 					
 					selectRandomlyUserForColor('white');			
 					selectRandomlyUserForColor('black');
@@ -105,7 +105,7 @@
 					});
 				
 				@else
-					$('input, select').attr('disabled', 'true');				
+					$('input:not([name="_token"]), select').attr('disabled', 'true');				
 				@endif
 			});
 		</script>
@@ -115,7 +115,7 @@
 	
     <body>
 	
-	<form id='content' method='post' action='/store'>
+	<form id='content' method='post'>
 		@csrf
 		
         <h3>Новая партия</h3>
@@ -124,12 +124,17 @@
 			<div class='player'>
 				<img src='pics/white.png' style='width: 2rem;'>
 				<select name='white'>
-						@php
-							foreach($users as $user)
-							{
-								echo "<option value=$user->id>$user->name</option>";
-							}
-						@endphp
+					@foreach($users as $user)
+						<option value={{ $user->id }}
+						  @if($action == 'destroy')
+							@if($user->id == $game->white)
+								selected
+							@endif
+						  @endif
+						 >
+							{{ $user->name }}
+						</option>
+					@endforeach
 				</select>
 				<input type='radio' name='winner' value='white'>
 			</div>
@@ -141,12 +146,17 @@
 			<div class='player'>
 				<img src='pics/black.png' style='width: 2rem;'>
 				<select name='black'>
-						@php
-							foreach($users as $user)
-							{
-								echo "<option value=$user->id>$user->name</option>";
-							}
-						@endphp
+					@foreach($users as $user)
+						<option value={{ $user->id }}
+						  @if($action == 'destroy')
+							@if($user->id == $game->black)
+								selected
+							@endif
+						  @endif
+						 >
+							{{ $user->name }}
+						</option>
+					@endforeach
 				</select>
 				<input type='radio' name='winner' value='black'>
 			</div>
@@ -160,9 +170,11 @@
 		</div>
 		
 		<input type='date' name='date' 
-			value='{{ $action == "new" ? date("Y-m-d") : $game->date; }}'>
+			value='{{ $action == "store" ? date("Y-m-d") : $game->date; }}'>
 		
-		<button type='submit'>Добавить партию в базу</button>
+		<!--button type='submit'>Добавить партию в базу</button-->
+		<x-submit :action="$action">
+		</x-submit>
 		<button type='button' onclick='location.href="/";'>Отмена</button>
 		
 	</form>

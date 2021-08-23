@@ -30,14 +30,14 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('game', ['action' => 'new', 
+        return view('game', ['action' => 'store', 
 							 'users' => User::all()]);
     }
 	
 	
 	public function delete()
     {
-		return view('game', ['action' => 'delete',
+		return view('game', ['action' => 'destroy',
 							 'users' => User::all(),
 							 'game' => $this->getLastGame()]);
     }
@@ -140,6 +140,7 @@ class GameController extends Controller
      */
     public function destroy(/*$id*/)
     {
+		file_put_contents('debug/value.txt', "\ndestroy\n", FILE_APPEND);
 		$game = $this->getLastGame();
         
 		$winnerId = $game->winner;
@@ -148,12 +149,12 @@ class GameController extends Controller
 		$blackUserId = $game->black;
 		
 		//file_put_contents('debug/value.txt', "Last game: " . $games . "\n", FILE_APPEND);
-		file_put_contents('debug/value.txt', "\nDelete game with id: " . $games[0]->id . "\n", FILE_APPEND);
+		//file_put_contents('debug/value.txt', "\nDelete game with id: " . $games[0]->id . "\n", FILE_APPEND);
 		file_put_contents('debug/value.txt', "white id: " . $whiteUserId . "\n", FILE_APPEND);
 		file_put_contents('debug/value.txt', "black id: " . $blackUserId . "\n", FILE_APPEND);
 		file_put_contents('debug/value.txt', "winner id: " . $winnerId . "\n", FILE_APPEND);
 
-		Game::destroy($games[0]->id);
+		Game::destroy($game->id);
 		
 		
 		$whiteUser = User::findOrFail($whiteUserId);
