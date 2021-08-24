@@ -26,7 +26,7 @@ Route::get('/new', function () {
     return view('newgame');
 });
 */
-Route::get('/new', [GameController::class, 'create'])->middleware('auth.basic');
+Route::get('/new', [GameController::class, 'create'])->middleware('auth');
 
 Route::get('/del', [GameController::class, 'delete'])->middleware('auth.basic');
 Route::post('/destroy', [GameController::class, 'destroy'])->middleware('auth.basic');
