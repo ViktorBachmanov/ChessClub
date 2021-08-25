@@ -24,7 +24,7 @@
         <form method='post' action='/forgot-password'>
 			@csrf
 			
-			<input type='email' name='email'></input>
+			<input name='name'></input>
 	
 			
 			<button type='submit'>Ok</button>

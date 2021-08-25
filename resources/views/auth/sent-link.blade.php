@@ -25,29 +25,42 @@
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
+				
             }
 			
-			form {
+			#card {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: space-evenly;
-				height: 20rem;
+				height: 10rem;
 				width: 15rem;
 				box-shadow: 0px 0px 3px 2px gray;
-			}
-				
-			label {
 				text-align: center;
+				border-radius: 1rem;
 			}
 			
-			input {
-				display: block;
-				margin-top: 0.5rem;
+			#message {
+				padding: 0.25rem;
+				
 			}
+			
+			.success {
+				background-color: lightgreen;
+			}
+			
+			.failed {
+				background-color: tomato;
+			}
+				
 			
 			a {
 				text-decoration: none;
+				background-color: LightGray;
+				padding: 0.5rem;
+				border-radius: 0.5rem;
+				text-shadow: 2px 2px 1px white;
+				
 			}
 			
         </style>
@@ -61,24 +74,17 @@
     </head>
 	
     <body>
-        <form method='post' action='/login'>
-			@csrf
+        <div id='card'>
+		  <div id='message' @class(['success' => $status, 'failed' => !$status])>
+		@if($status)
+			Ссылка сброса пароля отправлена на почту {{ $email }}
+		@else
+			Ошибка отправки ссылки на почту
+		@endif
+		  </div>
 			
-			<label>ФИО
-			<input name='name'></input>
-			</label>
 			
-			<label>Пароль
-			<input name='password' type='password'></input>
-			</label>
-			
-			<label>Запомнить меня 
-			<input type='checkbox' name='remember' style='display: inline;' checked>
-			</label>
-			
-			<button type='submit'>Log in</button>
-			
-			<a href='/forgot-password'>Забыли пароль?</a>
-        </form>
+			<a href='/'>Перейти на главную</a>
+        </div>
     </body>
 </html>
