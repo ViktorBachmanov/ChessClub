@@ -9,28 +9,39 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
-        <style>
-        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
+		
+	
+		<!-- Styles -->
+		<link rel="Stylesheet" href="/css/auth.css">
+        
+		
+		<script>
+			$(document).ready(function() {
+				document.body.style.height = $(window).height() + 'px';
+			});
+		</script>
+        
     </head>
 	
     <body>
-        <form method='post' action='/forgot-password'>
+        <form method='post' action='/reset-password'>
 			@csrf
 			
-			<input type='email' name='email'></input>
+			<label>ФИО
+			<input name='name'>
+			</label>
 			
-			<input name='password' type='password'></input>
+			<label>Новый пароль
+			<input name='password' type='password'>
+			</label>
 			
-			<input name='password_confirmation' type='password'></input>
+			<label>Новый пароль еще раз
+			<input name='password_confirmation' type='password'>
+			</label>
 			
-			<input hidden name='token' value={{ $request->route('token') }}></input>
+			<input type='hidden' name='token' value={{ $request->route('token') }}>
 			
 			<button type='submit'>Ok</button>
         </form>

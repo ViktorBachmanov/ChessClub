@@ -46,9 +46,9 @@ class ResetPasswordNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
+                    ->line('Это письмо-ссылка на страницу сброса пароля')
                     //->action('Notification Action', url('/'))
-                    ->action('Notification Action', url($this->url, [$this->token]))
+                    ->action('Перейти к сбросу пароля', url($this->url, [$this->token]))
                     ->line('Thank you for using our application!');
     }
 

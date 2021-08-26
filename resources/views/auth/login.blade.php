@@ -13,48 +13,14 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 		
-		
-		
+	
 		<!-- Styles -->
-
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-				
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-            }
-			
-			form {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: space-evenly;
-				height: 20rem;
-				width: 15rem;
-				box-shadow: 0px 0px 3px 2px gray;
-			}
-				
-			label {
-				text-align: center;
-			}
-			
-			input {
-				display: block;
-				margin-top: 0.5rem;
-			}
-			
-			a {
-				text-decoration: none;
-			}
-			
-        </style>
+		<link rel="Stylesheet" href="css/auth.css">
+        
 		
 		<script>
 			$(document).ready(function() {
-				document.body.style.height = $(window).height() + 'px'
+				document.body.style.height = $(window).height() + 'px';
 			});
 		</script>
 		
@@ -65,11 +31,11 @@
 			@csrf
 			
 			<label>ФИО
-			<input name='name'></input>
+			<input name='name'>
 			</label>
 			
 			<label>Пароль
-			<input name='password' type='password'></input>
+			<input name='password' type='password'>
 			</label>
 			
 			<label>Запомнить меня 

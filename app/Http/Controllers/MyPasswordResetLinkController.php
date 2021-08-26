@@ -23,7 +23,7 @@ use App\Http\Responses\PasswordResetLinkRequestResponse;
 
 class MyPasswordResetLinkController extends PasswordResetLinkController
 {
-	protected $redirectTo = '/';
+	//protected $redirectTo = '/';
     
 
     /**

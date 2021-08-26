@@ -10,7 +10,7 @@ class ResetUserPassword implements ResetsUserPasswords
 {
     use PasswordValidationRules;
 	
-	protected $redirectTo = '/';
+	//protected $redirectTo = '/';
 
     /**
      * Validate and reset the user's forgotten password.

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\MainTableController;
 use App\Http\Controllers\MyPasswordResetLinkController;
+use App\Http\Controllers\MyNewPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,10 +39,17 @@ Route::post('/store', [GameController::class, 'store'])->middleware('auth.basic'
 Route::post('/forgot-password', [MyPasswordResetLinkController::class, 'store']);
             //->middleware(['guest:'.config('fortify.guard')]);
             //->name('password.email');
-			
+Route::get('/reset-password/{token}', [MyNewPasswordController::class, 'create']);
+                //->middleware(['guest:'.config('fortify.guard')])
+                //->name('password.reset');
+				
+Route::post('/reset-password', [MyNewPasswordController::class, 'store']);
+            //->middleware(['guest:'.config('fortify.guard')])
+            //->name('password.update');
+/*			
 Route::get('/sent', function() {
 	return view('auth.sent-link', ['status' => true,
 									'email' => 'info@chess']);
-});
+});*/
 
 
