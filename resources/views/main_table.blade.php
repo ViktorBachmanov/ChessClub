@@ -10,7 +10,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 		<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
-		
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
 		<link rel="Stylesheet" href="css/base.css">
 		
 		<script src='js/medal.js'></script>
@@ -92,13 +94,37 @@
 			.totalScore {
 				background-color: rgb(235,235,235);
 			}
+			
+			button {
+				display: block;
+				margin: 3rem auto;
+			}
+			
+			#buttons_div {
+				padding-top: 2rem;
+				width: 100%;
+			}
         </style>
 		
+
+		
+	
+		
+		
 		<script>
-			window.onload = function() {
-				/*let cell = document.getElementById('gold');
-				drawMedal(cell, 'color');*/
-			};
+			$(document).ready(function() {
+				@if(Auth::check())
+					/*let tableEl = document.querySelector('table');
+					document.querySelector('#buttons_div').style.width = 
+								tableEl.offsetWidth + 'px';*/
+				@endif
+				
+				$('td:contains(Бачманов), td:contains(Петрухин)')
+				.on('click', function() {
+					location.href = '/login';
+				})
+				.css('cursor', 'pointer');
+			});
 		</script>
 		
     </head>
@@ -109,6 +135,7 @@
 			use App\Models\Game;
 		@endphp
 	
+		<div style='overflow: auto'>
 		<table>
 			<thead>
 				<tr>
@@ -176,6 +203,14 @@
 				@endforeach
 			</tbody>
 		</table>
+		</div>
+		
+		@if(Auth::check())
+			<div id='buttons_div' style=''>
+				<button onclick='location.href = "/new"'>Добавить партию в базу</button>
+				<button onclick='location.href = "/del"'>Удалить последнюю партию</button>
+			</div>
+		@endif
 		
     </body>
 	
