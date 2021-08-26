@@ -30,6 +30,10 @@
         <form method='post' action='/login'>
 			@csrf
 			
+			@if(session('status'))
+				<span style='background-color: lightgreen'>Пароль обновлен</span>
+			@endif
+			
 			<label>ФИО
 			<input name='name'>
 			</label>
