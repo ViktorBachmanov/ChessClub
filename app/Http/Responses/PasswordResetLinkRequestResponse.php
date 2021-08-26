@@ -28,9 +28,18 @@ class PasswordResetLinkRequestResponse implements SuccessfulPasswordResetLinkReq
      */
     public function __construct(string $status, $email)
     {
-        $this->status = $status == Password::RESET_LINK_SENT
+        /*$this->status = $status == Password::RESET_LINK_SENT
 						? true
-						: false;
+						: false;*/
+		switch($status) {
+			case Password::RESET_LINK_SENT:
+				$this->status = 'sent';
+				break;
+				
+			default:
+				$this->status = $status;
+			
+		}
 						
 		$this->email = $email;
     }

@@ -39,6 +39,7 @@ class MyPasswordResetLinkController extends PasswordResetLinkController
 		//$email = User::where('name', $request->name)->value('email');
 		$email = DB::table('users')->where('name', $request->name)->value('email');
 		
+		
         //$request->validate([Fortify::email() => 'required|email']);
 
         // We will send the password reset link to this user. Once we have attempted
@@ -48,6 +49,10 @@ class MyPasswordResetLinkController extends PasswordResetLinkController
             //$request->only(Fortify::email())
 			['email' => $email]
         );
+		
+		if(!(bool)$email) {
+			$status = 'email_absences';
+		}
 		
 		/*
         return $status == Password::RESET_LINK_SENT

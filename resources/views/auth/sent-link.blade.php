@@ -51,6 +51,7 @@
 			
 			.failed {
 				background-color: tomato;
+				color: white;
 			}
 				
 			
@@ -67,7 +68,20 @@
 		
 		<script>
 			$(document).ready(function() {
-				document.body.style.height = $(window).height() + 'px'
+				document.body.style.height = $(window).height() + 'px';
+				
+				let messageEl = document.getElementById('message');
+				let status = '{{ $status }}';
+				switch( status ) {
+					case 'sent':
+						messageEl.classList.add('success');
+						break;
+						
+					default:
+						messageEl.classList.add('failed');
+						break;
+					
+				}
 			});
 		</script>
 		
@@ -75,12 +89,19 @@
 	
     <body>
         <div id='card'>
-		  <div id='message' @class(['success' => $status, 'failed' => !$status])>
-		@if($status)
-			Ссылка сброса пароля отправлена на почту {{ $email }}
-		@else
-			Ошибка отправки ссылки на почту
-		@endif
+		  <div id='message'>
+		@switch($status)
+			@case('sent')
+				Ссылка сброса пароля отправлена на почту {{ $email }}
+				@break
+				
+			@case('email_absences')
+				Email не указан
+				@break
+				
+			@default
+				Ошибка
+		@endswitch
 		  </div>
 			
 			
