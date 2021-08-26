@@ -49,7 +49,7 @@ Route::post('/reset-password', [MyNewPasswordController::class, 'store']);
 			
 Route::get('/login', function() {
 	return view('auth.login');
-});
+})->name('login');
 
 /*			
 Route::get('/sent', function() {

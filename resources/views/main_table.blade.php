@@ -135,7 +135,6 @@
 			use App\Models\Game;
 		@endphp
 	
-		<div style='overflow: auto'>
 		<table>
 			<thead>
 				<tr>
@@ -203,7 +202,6 @@
 				@endforeach
 			</tbody>
 		</table>
-		</div>
 		
 		@if(Auth::check())
 			<div id='buttons_div' style=''>
