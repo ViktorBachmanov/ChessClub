@@ -30,10 +30,10 @@ Route::get('/new', function () {
 */
 Route::get('/new', [GameController::class, 'create'])->middleware('auth');
 
-Route::get('/del', [GameController::class, 'delete'])->middleware('auth.basic');
-Route::post('/destroy', [GameController::class, 'destroy'])->middleware('auth.basic');
+Route::get('/del', [GameController::class, 'delete'])->middleware('auth');
+Route::post('/destroy', [GameController::class, 'destroy'])->middleware('auth');
 
-Route::post('/store', [GameController::class, 'store'])->middleware('auth.basic');
+Route::post('/store', [GameController::class, 'store'])->middleware('auth');
 
 
 Route::post('/forgot-password', [MyPasswordResetLinkController::class, 'store']);
@@ -46,6 +46,11 @@ Route::get('/reset-password/{token}', [MyNewPasswordController::class, 'create']
 Route::post('/reset-password', [MyNewPasswordController::class, 'store']);
             //->middleware(['guest:'.config('fortify.guard')])
             //->name('password.update');
+			
+Route::get('/login', function() {
+	return view('auth.login');
+});
+
 /*			
 Route::get('/sent', function() {
 	return view('auth.sent-link', ['status' => true,

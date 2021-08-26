@@ -38,8 +38,10 @@
 			<input name='name'>
 			</label>
 	
-			
-			<button type='submit'>Ok</button>
+			<div>
+				<button type='submit' style='margin-right: 1rem'>Ок</button>
+				<button type='button' onclick='location.href="/";'>Отмена</button>
+			</div>
         </form>
     </body>
 </html>

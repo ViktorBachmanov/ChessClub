@@ -10,7 +10,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 		<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
-		
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
 		<link rel="Stylesheet" href="css/base.css">
 		
 		<script src='js/medal.js'></script>
@@ -94,11 +96,19 @@
 			}
         </style>
 		
+
+		
+	
+		
+		
 		<script>
-			window.onload = function() {
-				/*let cell = document.getElementById('gold');
-				drawMedal(cell, 'color');*/
-			};
+			$(document).ready(function() {
+				$('td:contains(Бачманов), td:contains(Петрухин)')
+				.on('click', function() {
+					location.href = '/login';
+				})
+				.css('cursor', 'pointer');
+			});
 		</script>
 		
     </head>
