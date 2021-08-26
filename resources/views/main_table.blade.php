@@ -94,6 +94,16 @@
 			.totalScore {
 				background-color: rgb(235,235,235);
 			}
+			
+			button {
+				display: block;
+				margin: 3rem auto;
+			}
+			
+			#buttons_div {
+				padding-top: 2rem;
+				width: 100%;
+			}
         </style>
 		
 
@@ -103,6 +113,12 @@
 		
 		<script>
 			$(document).ready(function() {
+				@if(Auth::check())
+					/*let tableEl = document.querySelector('table');
+					document.querySelector('#buttons_div').style.width = 
+								tableEl.offsetWidth + 'px';*/
+				@endif
+				
 				$('td:contains(Бачманов), td:contains(Петрухин)')
 				.on('click', function() {
 					location.href = '/login';
@@ -119,6 +135,7 @@
 			use App\Models\Game;
 		@endphp
 	
+		<div style='overflow: auto'>
 		<table>
 			<thead>
 				<tr>
@@ -186,6 +203,14 @@
 				@endforeach
 			</tbody>
 		</table>
+		</div>
+		
+		@if(Auth::check())
+			<div id='buttons_div' style=''>
+				<button onclick='location.href = "/new"'>Добавить партию в базу</button>
+				<button onclick='location.href = "/del"'>Удалить последнюю партию</button>
+			</div>
+		@endif
 		
     </body>
 	
