@@ -92,7 +92,7 @@
 		  <div id='message'>
 		@switch($status)
 			@case('sent')
-				Ссылка сброса пароля отправлена на почту {{ $email }}
+				Ссылка на сброс пароля отправлена на почту {{ $email }}
 				@break
 				
 			@case('email_absences')
