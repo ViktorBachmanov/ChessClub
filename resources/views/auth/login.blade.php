@@ -46,7 +46,7 @@
 			<input type='checkbox' name='remember' style='display: inline;' checked>
 			</label>
 			
-			<button type='submit'>Log in</button>
+			<button type='submit'>Войти</button>
 			
 			<a href='/forgot-password'>Забыли пароль?</a>
         </form>
