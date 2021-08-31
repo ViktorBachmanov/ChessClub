@@ -62,4 +62,8 @@ Route::get('/sent', function() {
 									'email' => 'info@chess']);
 });*/
 
+Route::get('/desc', function() {
+	return view('desc');
+});
+
 
