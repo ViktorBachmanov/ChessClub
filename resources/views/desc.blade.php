@@ -21,6 +21,8 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+				display: flex;
+				flex-wrap: wrap;
             }
 			
 			.fio {
@@ -103,6 +105,38 @@
 				padding-top: 2rem;
 				width: 100%;
 			}
+			
+			code {
+				background-color: rgba(220,225,210,0.5);
+				padding: 0.15rem;
+				border-radius: 0.25rem;
+			}
+			
+			section {
+				
+			}
+			
+			.cont {
+				display: flex;
+				
+			}
+			
+			.screenshots {
+				flex: 1 1 auto;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;				
+			}
+			
+			.screenshots img {
+				margin: 1rem;
+				max-width: 220px;
+				border: 3px solid #686169;
+				border-radius: 1rem;
+				padding: 1rem 0.25rem 2rem 0.25rem;
+				background-color: #686169;
+			}
         </style>	
 	
 		
@@ -118,6 +152,68 @@
 	
     <body>
 		<h2>Турнирная таблица шахматного клуба</h2>
+		
+		
+		
+		<section>
+			База результатов шахматных партий и рейтингов игроков. Итоговая турнирная таблица 
+			сортируется по убыванию рейтинга. 
+			<img src='pics/table.png' style='max-width: 450px'>
+		</section>	
+		
+		<section>
+			<div class='screenshots'>
+				Пользователи с правами 
+				администратора могут добавлять новые партии в базу,&nbsp;
+			
+				<img src='pics/new.png'>
+			</div>
+		</section>
+		
+		<section>
+			<div class='screenshots'>
+				а также удалять последнюю (в случае
+				какой-либо ошибки при добавлении)		
+				
+				<img src='pics/del.png'>
+			</div>
+		</section>
+		
+		<section>
+			При добавлении партии в базу, 
+			автоматически вычисляется изменение рейтингов участников игры. 
+			
+			<x-eval-rating>
+			</x-eval-rating>
+			
+			
+			При удалении партии производится 
+			обратный пересчет рейтингов.
+		</section>
+		
+		<section>
+			Простые игроки (не администраторы) не нуждаются в аутентификации. Режим администрирования 
+			активируется кликом на фамилию и вводом пароля.
+			<img src='pics/login.png'>
+		</section>
+		
+		<section>
+			Система аутентификации построена на базе пакета Laravel/Fortify. Пользователь вводит 
+			фамилию с инициалами и пароль. В MySQL-таблице <code>users</code> адреса электронной почты имеются только 
+			у администраторов. 
+			<img src='pics/dontsent.png'>
+		</section>
+		
+		<section>
+			В случае, если администратор забыл пароль, он имеет возможность
+			получить по почте ссылку на задание нового пароля.
+			<img src='pics/sent.png'>
+		</section>
+		
+		
+		
+		
+		
 		
 		
     </body>
