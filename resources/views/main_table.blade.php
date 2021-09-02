@@ -136,9 +136,6 @@
 	
 	
     <body>
-		@php
-			use App\Models\Game;
-		@endphp
 		
 		<form id='period-and-sorting' method='post' action='/select'>
 			@csrf
@@ -198,7 +195,7 @@
 									@endphp
 								@else
 									@php
-										$score = Game::evalScoreUser1User2($user->id, $opponent->id);
+										$score = $user->evalScore($opponent->id);
 										$totalScore += $score;
 									@endphp
 									{{ $score; }}

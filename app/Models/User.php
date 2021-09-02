@@ -9,6 +9,9 @@ use Illuminate\Notifications\Notifiable;
 
 use App\Notifications\ResetPasswordNotification;
 
+use App\Models\Game;
+
+
 class User extends Authenticatable
 {
     //use HasFactory, Notifiable;
@@ -142,4 +145,40 @@ public function sendPasswordResetNotification($token)
 		
 		return $gamesTotal;
 	}
+	
+	
+	public function evalScore($opponentId) {
+		$whiteScore = $this->getColorScore('white', $opponentId);
+		$blackScore = $this->getColorScore('black', $opponentId);
+		$totalScore = $whiteScore + $blackScore;
+		
+		//file_put_contents('debug/value.txt', "evalScoreUser1User2: " . $whiteScore . "\n", FILE_APPEND);
+		
+		return $totalScore;
+	}
+	
+	private function getColorScore($color1, $opponentId) {
+	$color2 = $color1 == 'white' ? 'black' : 'white';
+	$games = Game::where($color1, $this->id)
+					->where($color2, $opponentId)
+					->get();
+	$score = 0;
+	for($i = 0; $i < $games->count(); $i++) {
+		//file_put_contents('debug/value.txt', "user1Id: " . $user1Id . "\n", FILE_APPEND);
+		//file_put_contents('debug/value.txt', "game->winner: " . $games[$i]->winner . "\n", FILE_APPEND);
+		if($games[$i]->winner == $this->id) {
+			$score += 1;
+			//file_put_contents('debug/value.txt', "score: " . $score . "\n", FILE_APPEND);
+		}
+		else if(!$games[$i]->winner) {
+			$score += 0.5;
+			//file_put_contents('debug/value.txt', "score: " . $score . "\n", FILE_APPEND);
+		}
+		
+	};
+	
+	//file_put_contents('debug/value.txt', "getColorScore return: " . $score . "\n", FILE_APPEND);
+	
+	return $score;
+}
 }
