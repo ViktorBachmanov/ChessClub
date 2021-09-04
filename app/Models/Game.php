@@ -2,6 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\User;
+
+use DateTime;
+
+
 //use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,42 +17,37 @@ class Game extends Model
 	public $timestamps = false;
 	
 	
-	public static function evalScoreUser1User2($user1Id, $user2Id) {
-		$whiteScore = getColorScore('white', $user1Id, $user2Id);
-		$blackScore = getColorScore('black', $user1Id, $user2Id);
-		$totalScore = $whiteScore + $blackScore;
-		
-		//file_put_contents('debug/value.txt', "evalScoreUser1User2: " . $whiteScore . "\n", FILE_APPEND);
-		
-		return $totalScore;
+	public function getWhiteFio()
+    {
+		return User::findOrFail($this->white)->name;
 	}
+	
+	public function getBlackFio()
+    {
+		return User::findOrFail($this->black)->name;
+	}
+	
+	public function getDate()
+    {
+		$date = new DateTime($this->date);
+		
+		return $date->format('d.m.y');
+	}
+
+	public function getWinner()
+    {
+		if($this->winner) {
+			return User::findOrFail($this->winner)->name;
+		}
+		else {
+			return 'Ничья';
+		}
+	}
+	
 	
 }
 
 
 ////////////////////////////////////////////////////////////
 
-function getColorScore($color1, $user1Id, $user2Id) {
-	$color2 = $color1 == 'white' ? 'black' : 'white';
-	$games = Game::where($color1, $user1Id)
-					->where($color2, $user2Id)
-					->get();
-	$score = 0;
-	for($i = 0; $i < $games->count(); $i++) {
-		//file_put_contents('debug/value.txt', "user1Id: " . $user1Id . "\n", FILE_APPEND);
-		//file_put_contents('debug/value.txt', "game->winner: " . $games[$i]->winner . "\n", FILE_APPEND);
-		if($games[$i]->winner == $user1Id) {
-			$score += 1;
-			//file_put_contents('debug/value.txt', "score: " . $score . "\n", FILE_APPEND);
-		}
-		else if(!$games[$i]->winner) {
-			$score += 0.5;
-			//file_put_contents('debug/value.txt', "score: " . $score . "\n", FILE_APPEND);
-		}
-		
-	};
-	
-	//file_put_contents('debug/value.txt', "getColorScore return: " . $score . "\n", FILE_APPEND);
-	
-	return $score;
-}
+

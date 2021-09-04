@@ -104,6 +104,11 @@
 				padding-top: 2rem;
 				width: 100%;
 			}
+			/*
+			.sorting::after {
+				content: '\25BC';
+				color: #848579;
+			}*/
         </style>
 		
 
@@ -131,9 +136,10 @@
 	
 	
     <body>
-		@php
-			use App\Models\Game;
-		@endphp
+		
+		<form id='period-and-sorting' method='post' action='/select'>
+			@csrf
+		</form>
 	
 		<table>
 			<thead>
@@ -144,8 +150,10 @@
 						<th>{{ $loop->iteration }}
 					@endforeach
 					<th class='totalScore'>Очки
+						<input type='radio' name='sorting' value='score' form='period-and-sorting'>
 					<th>Игры
 					<th>Рейтинг
+						<input type='radio' name='sorting' value='rating' form='period-and-sorting' checked>
 				</tr>
 			</thead>
 			
@@ -187,7 +195,7 @@
 									@endphp
 								@else
 									@php
-										$score = Game::evalScoreUser1User2($user->id, $opponent->id);
+										$score = $user->evalScore($opponent->id);
 										$totalScore += $score;
 									@endphp
 									{{ $score; }}
@@ -202,6 +210,12 @@
 				@endforeach
 			</tbody>
 		</table>
+		
+		<div>
+			За период
+			<input type='date' name='date' value='2021-05-02'>
+			<input type='date' name='date' value='{{ date("Y-m-d") }}'>
+		</div>
 		
 		@if(Auth::check())
 			<div id='buttons_div' style=''>

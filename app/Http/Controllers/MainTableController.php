@@ -23,5 +23,19 @@ class MainTableController extends Controller
 		
         return view('main_table', ['users' => $filteredUsers->sortByDesc('rating')]);
     }
+	
+	
+	public function select(Request $request)
+    {
+		$users;
+		$sortingType = $request->sorting;
+		if($sortingType == 'score') {
+			$users = User::all()->sort(function($a, $b) {
+				//return $a->
+			});
+		}
+		//$users = 
+		//return view('main_table', ['users' => $users]);
+	}
 
 }
