@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\GamesController;
 use App\Http\Controllers\MainTableController;
 use App\Http\Controllers\MyPasswordResetLinkController;
 use App\Http\Controllers\MyNewPasswordController;
@@ -68,5 +69,9 @@ Route::get('/sent', function() {
 Route::get('/desc', function() {
 	return view('desc');
 });
+
+
+Route::get('/games', [GamesController::class, 'index']);
+
 
 
