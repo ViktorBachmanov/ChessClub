@@ -24,7 +24,7 @@ class MainTableController extends Controller
         return view('main_table', ['users' => $filteredUsers->sortByDesc('rating')]);
     }
 	
-	
+	/*
 	public function select(Request $request)
     {
 		$users;
@@ -36,6 +36,6 @@ class MainTableController extends Controller
 		}
 		//$users = 
 		//return view('main_table', ['users' => $users]);
-	}
+	}*/
 
 }

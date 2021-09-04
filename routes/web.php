@@ -25,7 +25,7 @@ Route::get('/', function () {
 */
 Route::get('/', [MainTableController::class, 'index'])->name('table');
 
-Route::post('/select', [MainTableController::class, 'select'])->name('table');
+//Route::post('/select', [MainTableController::class, 'select'])->name('table');
 
 /*
 Route::get('/new', function () {
