@@ -193,7 +193,7 @@
 		<!--button type='submit'>Добавить партию в базу</button-->
 		<x-submit :action="$action">
 		</x-submit>
-		<button type='button' onclick='location.href="/";'>Отмена</button>
+		<button type='button' onclick='location.href="/games";'>Отмена</button>
 		
 	</form>
 	
