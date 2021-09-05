@@ -64,10 +64,16 @@ td {
 	box-sizing: border-box;
 }
 
+
+	
 #header {
 	text-align: center;
-	margin: 1rem 0 2rem;
+	margin: 1rem 0;
 	box-sizing: border-box;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #header h2 {
@@ -77,12 +83,26 @@ td {
 	font-size: 120%;
 }
 
-#header a {
+#header .bg {
+	min-width: 30%; 
+	height: 4rem; 
+	flex: 1 1 25%;
+	padding: 0 1rem;
+	box-sizing: border-box;
+}	
+
+nav {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+nav a {
 	padding: 0.75rem;
 	border-radius: 0.5rem;
 	box-sizing: border-box;
 }
 
-#header a.active {
+nav a.active {
 	background-color: rgb(220,210,250);
 }
+

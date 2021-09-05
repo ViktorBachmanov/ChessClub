@@ -1,10 +1,31 @@
 @props(['isTable' => false, 'isGames' => false])
 
-<div id='header' style=''>
+<div id='header' >
 
-	<h2>Шахматный клуб</h2>
+	<div class='bg' style='background: url(pics/white_figures.png) center center no-repeat;
+							background-size: contain;'>
+		
+	</div>
+
+	<div style='flex: 1 2 auto; overflow: visible;
+				display: flex; justify-content: center; z-index: 101'>
+		<h2>Шахматный клуб</h2>		
+	</div>
 	
-	<a href='/' @class(['active' => $isTable])>Таблица</a>
-	<a href='/games' @class(['active' => $isGames])>Игры</a>
+	<div class='bg' style='background: url(pics/black_figures.png) center center no-repeat;
+							background-size: contain;'>
+	</div>
 	
 </div>
+
+<nav>
+	<a href='/' @class(['active' => $isTable])>Таблица</a>
+	<a href='/games' @class(['active' => $isGames])>Игры</a>
+</nav>
+
+<script>
+	$('nav a').on('click', function() {
+		$('nav a').removeClass('active');
+		$(this).addClass('active');
+	});
+</script>
