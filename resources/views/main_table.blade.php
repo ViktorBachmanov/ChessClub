@@ -15,7 +15,7 @@
 		
 		<script src='js/util.js?1'></script>
 	
-		<link rel="Stylesheet" href="css/base.css?5">
+		<link rel="Stylesheet" href="css/base.css?6">
 		
 		
         <!-- Styles -->
