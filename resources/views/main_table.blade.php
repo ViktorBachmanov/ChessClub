@@ -96,15 +96,7 @@
 				background-color: rgb(235,235,235);
 			}
 			
-			button {
-				display: block;
-				margin: 3rem auto;
-			}
 			
-			#buttons_div {
-				padding-top: 2rem;
-				width: 100%;
-			}
 			/*
 			.sorting::after {
 				content: '\25BC';
@@ -131,7 +123,7 @@
 				})
 				.css('cursor', 'pointer');
 				
-				setHeaderWidth();
+				setBodyWidth();
 			});
 		</script>
 		
@@ -210,13 +202,6 @@
 			</tbody>
 		</table>
 		
-		
-		@if(Auth::check())
-			<div id='buttons_div' style=''>
-				<button onclick='location.href = "/new"'>Добавить партию в базу</button>
-				<button onclick='location.href = "/del"'>Удалить последнюю партию</button>
-			</div>
-		@endif
 		
     </body>
 	

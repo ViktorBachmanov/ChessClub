@@ -31,6 +31,16 @@
 				text-align: left;
 			}
 			
+			button {
+				display: inline-block;
+				margin: 1rem;
+			}
+			
+			#buttons_div {
+				text-align: center;
+				margin-bottom: 1rem;
+			}
+			
 			
         </style>
 		
@@ -47,7 +57,7 @@
 								tableEl.offsetWidth + 'px';*/
 				@endif
 				
-				setHeaderWidth();
+				setBodyWidth();
 				
 			});
 		</script>
@@ -62,6 +72,14 @@
 		<form id='' method='post' action='/'>
 			@csrf
 		</form>
+		
+		
+		@if(Auth::check())
+			<div id='buttons_div' style=''>
+				<button onclick='location.href = "/new"'>Добавить</button>
+				<button onclick='location.href = "/del"'>Удалить</button>
+			</div>
+		@endif
 	
 		
 		

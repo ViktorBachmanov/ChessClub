@@ -12,9 +12,14 @@ function selectRandomlyUserForColor(color) {
 	colorOptions[randomId].selected = true;	
 }
 
-
+/*
 function setHeaderWidth() {
 	let headerEl = document.getElementById('header');
 	let tableEl = document.querySelector('table');
 	headerEl.style.width = tableEl.offsetWidth + 'px';
+}*/
+
+function setBodyWidth() {
+	let tableEl = document.querySelector('table');
+	document.body.style.width = tableEl.offsetWidth + 'px';
 }
