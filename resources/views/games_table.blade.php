@@ -13,7 +13,7 @@
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	
-		<link rel="Stylesheet" href="css/base.css">
+		<link rel="Stylesheet" href="css/base.css?4">
 		
 				
         <!-- Styles -->
@@ -50,6 +50,8 @@
 	
 	
     <body>
+	
+		<x-header :isGames='true'/>
 		
 		<form id='' method='post' action='/'>
 			@csrf
