@@ -14,10 +14,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		
 		
-		<script src='js/util.js'></script>
+		<script src='js/util.js?1'></script>
 		
 	
-		<link rel="Stylesheet" href="css/base.css?4">
+		<link rel="Stylesheet" href="css/base.css?5">
 		
 				
         <!-- Styles -->
