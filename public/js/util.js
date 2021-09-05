@@ -11,3 +11,10 @@ function selectRandomlyUserForColor(color) {
 	let randomId = getRandomIntInclusive(0, colorOptions.length - 1);
 	colorOptions[randomId].selected = true;	
 }
+
+
+function setHeaderWidth() {
+	let headerEl = document.getElementById('header');
+	let tableEl = document.querySelector('table');
+	headerEl.style.width = tableEl.offsetWidth + 'px';
+}

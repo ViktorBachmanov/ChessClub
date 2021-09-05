@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width">
 
         <title>Chess</title>
 
@@ -12,6 +12,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		
+		<script src='js/util.js'></script>
 	
 		<link rel="Stylesheet" href="css/base.css?4">
 		
@@ -128,6 +130,8 @@
 					location.href = '/login';
 				})
 				.css('cursor', 'pointer');
+				
+				setHeaderWidth();
 			});
 		</script>
 		
