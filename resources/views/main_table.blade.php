@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Chess</title>
 
@@ -24,6 +24,9 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
             }
 			
 			.fio {
@@ -126,8 +129,17 @@
 				
 				//setBodyWidth();
 				
-				new SmartTable;
+				const smartTable = new SmartTable;
+				
+				setHeaderWidth(smartTable);
+				
+				$(window).on('resize', () => {
+					setHeaderWidth(smartTable);
+				});
+				
 			});
+			
+			
 		</script>
 		
     </head>

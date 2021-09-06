@@ -32,4 +32,8 @@ class SmartTable {
 		}
 	}
 	
+	get width() {
+		return this._frame.offsetWidth;
+	}
+	
 }

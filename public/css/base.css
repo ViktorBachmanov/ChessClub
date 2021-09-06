@@ -68,12 +68,15 @@ td {
 	
 #header {
 	text-align: center;
-	margin: 1rem;
+	margin: 0 1rem 1rem;
 	box-sizing: border-box;
 	
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	
+	
+	padding: 0 1rem;
 	
 	/*background-image: repeating-linear-gradient(to bottom, white,
 								black 1rem,
@@ -81,8 +84,8 @@ td {
 }
 
 #header h2 {
-	margin: 1rem;
-	padding: 1rem;
+	/*margin: 1rem;
+	padding: 1rem;*/
 	box-sizing: border-box;
 	font-size: 120%;
 	text-shadow: 2px 2px 2px silver;
@@ -92,6 +95,7 @@ td {
 	min-width: 30%; 
 	height: 4rem; 
 	flex: 1 1 35%;
+	margin-top: 4rem;
 	padding: 0 1rem;
 	box-sizing: border-box;
 }	

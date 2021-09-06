@@ -7,7 +7,7 @@
 		
 	</div>
 
-	<div style='flex: 1 2 auto; overflow: visible;
+	<div style='flex: 1 2 30%; overflow: visible; min-width: 0;
 				display: flex; justify-content: center; z-index: 101'>
 		<h2>Шахматный клуб</h2>		
 	</div>

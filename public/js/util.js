@@ -23,3 +23,8 @@ function setBodyWidth() {
 	let tableEl = document.querySelector('table');
 	document.body.style.width = tableEl.offsetWidth + 'px';
 }
+
+function setHeaderWidth(smartTable) {
+	let headerEl = document.getElementById('header');
+	headerEl.style.width = Math.min(smartTable.width, $(window).width()) + 'px';
+}
