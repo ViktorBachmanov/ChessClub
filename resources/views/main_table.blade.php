@@ -154,7 +154,7 @@
 			<div id='moving_frame' style='overflow: auto'></div>
 			
 		<table style='position: absolute; top: 0; left: 0; background-color: transparent; 
-					pointer-events: none'>
+					pointer-events: none; '>
 			<thead>
 				<tr>
 					<th>№

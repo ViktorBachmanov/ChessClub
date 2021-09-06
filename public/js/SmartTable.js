@@ -24,6 +24,9 @@ class SmartTable {
 				if(j == 0 || j == 1) {
 					row.cells[j].style.backgroundColor = 'white';
 					row.cells[j].style.boxShadow = '2px 2px 2px gray';
+					if(i == 0) {
+						row.cells[j].style.boxShadow = '2px -2px 2px gray';
+					}
 				}
 				else {
 					row.cells[j].style.visibility = 'hidden';
