@@ -2,7 +2,7 @@
 
 <div id='header' >
 
-	<div class='bg' style='background: url(pics/white_figures_2.png) center center no-repeat;
+	<div class='bg' style='background: url(pics/white_figures_3.png) center center no-repeat;
 							background-size: contain;'>
 		
 	</div>
@@ -12,7 +12,7 @@
 		<h2>Шахматный клуб</h2>		
 	</div>
 	
-	<div class='bg' style='background: url(pics/black_figures_2.png) center center no-repeat;
+	<div class='bg' style='background: url(pics/black_figures_3.png) center center no-repeat;
 							background-size: contain;'>
 	</div>
 	
