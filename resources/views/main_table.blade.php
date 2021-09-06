@@ -14,7 +14,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		
 		<script src='js/util.js?2'></script>
-		<script src='js/SmartTable.js?3'></script>
+		<script src='js/SmartTable.js?4'></script>
 	
 		<link rel="Stylesheet" href="css/base.css?11">
 		
@@ -162,7 +162,7 @@
 					@foreach($users as $user)
 						<th>{{ $loop->iteration }}
 					@endforeach
-					<th class='totalScore'>Очки
+					<th class='totalScore' style='box-shadow: inset 0px 2px 2px gray;'>Очки
 					<th>Игры
 					<th>Рейтинг
 				</tr>

@@ -12,6 +12,8 @@ class SmartTable {
 		
 		
 		this.setFixedTableBackgroundColor();
+		
+		this.setMovingTableShadow();
 	}
 	
 	
@@ -24,9 +26,9 @@ class SmartTable {
 				if(j == 0 || j == 1) {
 					row.cells[j].style.backgroundColor = 'white';
 					row.cells[j].style.boxShadow = '2px 2px 2px gray';
-					if(i == 0) {
+					/*if(i == 0) {
 						row.cells[j].style.boxShadow = '2px -2px 2px gray';
-					}
+					}*/
 				}
 				else {
 					row.cells[j].style.visibility = 'hidden';
@@ -34,6 +36,15 @@ class SmartTable {
 				}
 			}
 		}
+	}
+	
+	
+	setMovingTableShadow() {
+		/*let rows = this._movingTable.rows;
+		for(let i = 0; i < rows.length; i++) {
+		}*/
+		this._movingTable.rows[0].style.boxShadow = 'inset 0 2px 2px gray';
+		
 	}
 	
 	get width() {
