@@ -14,6 +14,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		
 		<script src='js/util.js?1'></script>
+		<script src='js/SmartTable.js?1'></script>
 	
 		<link rel="Stylesheet" href="css/base.css?10">
 		
@@ -123,7 +124,9 @@
 				})
 				.css('cursor', 'pointer');
 				
-				setBodyWidth();
+				//setBodyWidth();
+				
+				new SmartTable;
 			});
 		</script>
 		
@@ -133,8 +136,13 @@
     <body>
 		
 		<x-header :isTable='true'/>
+		
+		<div id='smart_table' style='position: relative; max-width: 100%; overflow: hidden;'>
+		
+			<div id='moving_frame' style='overflow: auto'></div>
 			
-		<table>
+		<table style='position: absolute; top: 0; left: 0; background-color: transparent; 
+					pointer-events: none'>
 			<thead>
 				<tr>
 					<th>№
@@ -201,6 +209,8 @@
 				@endforeach
 			</tbody>
 		</table>
+		
+		</div>
 		
 		
     </body>
