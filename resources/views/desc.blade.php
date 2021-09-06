@@ -23,97 +23,30 @@
                 font-family: 'Nunito', sans-serif;
 				display: flex;
 				flex-wrap: wrap;
+				justify-content: center;
             }
 			
-			.fio {
-				text-align: left;
+			h2 {
+				margin: 1rem;
 			}
 			
-			.self {
-				min-width: 2.5rem;
-				max-width: 2.5rem;
-				min-height: 2.5rem;
-				max-height: 2.5rem;
-				padding: 0;				
-				/*position: relative;*/
-				
-				
-				background: linear-gradient(170deg, rgb(245,245,255) 0%,
-													rgb(235,240,245) 55%,
-													rgb(205,215,225) 100%);
-			}
-			/*
-			.medal {
-				width: 100%;
-				vertical-align: middle;
-			}*/
-			
-			.medal {
-				width: 2rem;
-				height: 2rem;
-				border-radius: 1rem;
-				margin: auto auto;
-				vertical-align: middle;													
-				font-family: 'GFS Didot', serif;				
-				display: flex;
-				align-items: center;
-				justify-content: center;				
-			}
-			
-			.gold {
-				background: linear-gradient(170deg, rgb(252, 220, 107) 0%,													
-													rgb(255, 254, 182) 100%);
-				box-shadow: 1px 1px 1px rgb(255,180,68);
-				color: rgb(255, 254, 182);
-				text-shadow: 1px 1px 1px rgb(255,180,68);
-			}
-			
-			.silver {
-				background: linear-gradient(170deg, rgb(220,220,220) 0%,													
-													rgb(253,245,237) 100%);
-				box-shadow: 1px 1px 1px rgb(210,205,200);
-				color: rgb(253,245,237);
-				text-shadow: 1px 1px 1px rgb(210,205,200);
-			}
-			
-			.bronze {
-				background: linear-gradient(170deg, rgb(237,173,102) 0%,													
-													rgb(255,219,44) 100%);
-				box-shadow: 1px 1px 1px rgb(237,173,102);
-				color: rgb(255,219,44);
-				text-shadow: 1px 1px 1px rgb(237,173,102);
-			}
-			
-			.wood {
-				background-image: url('pics/pine_1.jpg');
-				background-size: cover;
-				box-shadow: 1px 1px 1px rgb(228,108,31);
-				color: rgb(247,183,112);
-				text-shadow: 1px 1px 1px rgb(228,108,31);
-			}
-			
-			.totalScore {
-				background-color: rgb(235,235,235);
-			}
-			
-			button {
-				display: block;
-				margin: 3rem auto;
-			}
-			
-			#buttons_div {
-				padding-top: 2rem;
-				width: 100%;
-			}
-			
-			code {
+			.code {
 				background-color: rgba(220,225,210,0.5);
 				padding: 0.15rem;
 				border-radius: 0.25rem;
+				white-space: pre; 
+				overflow: auto; 
+				flex: 1 1 60%
 			}
 			
 			section {
+				text-indent: 1rem;
+				box-shadow: 0 0 2px 2px gray;
+				border-radius: 1rem;
+				margin: 1rem;
+				max-width: 100%;
 				
+				display: flex;
 			}
 			
 			.cont {
@@ -137,6 +70,14 @@
 				padding: 1rem 0.25rem 2rem 0.25rem;
 				background-color: #686169;
 			}
+			
+			a {
+				text-decoration: underline;
+			}
+			
+			p {
+				margin-top: 1rem;
+			}
         </style>	
 	
 		
@@ -151,8 +92,7 @@
 	
 	
     <body>
-		<h2>Турнирная таблица шахматного клуба</h2>
-		
+		<h2><a href='/'>Сайт</a> шахматного клуба</h2>	
 		
 		
 		<section>
@@ -180,16 +120,17 @@
 		</section>
 		
 		<section>
+			<div style='flex: 1 3 15%'>
 			При добавлении партии в базу, 
 			 изменение рейтингов участников игры автоматически вычисляется 
 			 по формуле Эло. 
-			
+			 <p>
+			 При удалении партии производится 
+			обратный пересчет рейтингов.
+			</div>
 			<x-eval-rating>
 			</x-eval-rating>
 			
-			
-			При удалении партии производится 
-			обратный пересчет рейтингов.
 		</section>
 		
 		<section>

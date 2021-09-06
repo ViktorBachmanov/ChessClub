@@ -1,14 +1,13 @@
-<section style='white-space: pre'>
+<div class='code' style=''>
     public function evalRating($opponentRating, $score)
     {
         $rating = $this->rating;
         $expectedScore = 1 / (1 + pow(10, ($opponentRating - $rating) / 400));
 		
-        $gamesTotal = $this->getTotalGames();
         $koef;
         if($rating >= 2400)
             $koef = 10;
-        else if($gamesTotal > 30)
+        else if($this->getTotalGames() > 30)
             $koef = 20;
         else
             $koef = 40;
@@ -17,4 +16,5 @@
 		
         $this->save();
     }
-</section>
+	
+</div>
