@@ -41,7 +41,14 @@
 				margin-bottom: 1rem;
 			}
 			
+			.cell {
+				display: flex;
+				justify-content: space-between;;
+			}
 			
+			.winner {
+				background-color: rgba(50, 252, 84, 0.11);
+			}
         </style>
 		
 
@@ -86,18 +93,16 @@
 		<table>
 			<thead>
 				<th>Белые
-				<th>Черные
 				<th>Дата
-				<th>Выиграл
+				<th>Черные
 			</thead>
 			
 			<tbody>
 				@foreach($games as $game)
 					<tr>
-						<td>{{ $game->getWhiteFio(); }}
-						<td>{{ $game->getBlackFio(); }}
+						<td @class(['winner' => $game->isWhiteWon()])>{{ $game->getWhiteFio(); }}
 						<td>{{ $game->getDate(); }}
-						<td>{{ $game->getWinner(); }}
+						<td @class(['winner' => $game->isBlackWon()])>{{ $game->getBlackFio(); }}
 					</tr>
 				@endforeach
 				
