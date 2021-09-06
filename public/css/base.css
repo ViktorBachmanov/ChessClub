@@ -85,6 +85,7 @@ td {
 	padding: 1rem;
 	box-sizing: border-box;
 	font-size: 120%;
+	text-shadow: 2px 2px 2px silver;
 }
 
 #header .bg {
