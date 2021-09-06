@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Chess</title>
 
@@ -13,9 +13,10 @@
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		
-		<script src='js/util.js?1'></script>
+		<script src='js/util.js?2'></script>
+		<script src='js/SmartTable.js?4'></script>
 	
-		<link rel="Stylesheet" href="css/base.css?10">
+		<link rel="Stylesheet" href="css/base.css?11">
 		
 		
         <!-- Styles -->
@@ -23,6 +24,9 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
             }
 			
 			.fio {
@@ -123,8 +127,19 @@
 				})
 				.css('cursor', 'pointer');
 				
-				setBodyWidth();
+				//setBodyWidth();
+				
+				const smartTable = new SmartTable;
+				
+				setHeaderWidth(smartTable);
+				
+				$(window).on('resize', () => {
+					setHeaderWidth(smartTable);
+				});
+				
 			});
+			
+			
 		</script>
 		
     </head>
@@ -133,8 +148,13 @@
     <body>
 		
 		<x-header :isTable='true'/>
+		
+		<div id='smart_table' style='position: relative; max-width: 100%; overflow: hidden;'>
+		
+			<div id='moving_frame' style='overflow: auto'></div>
 			
-		<table>
+		<table style='position: absolute; top: 0; left: 0; background-color: transparent; 
+					pointer-events: none; '>
 			<thead>
 				<tr>
 					<th>№
@@ -142,7 +162,7 @@
 					@foreach($users as $user)
 						<th>{{ $loop->iteration }}
 					@endforeach
-					<th class='totalScore'>Очки
+					<th class='totalScore' style='box-shadow: inset 0px 2px 2px gray;'>Очки
 					<th>Игры
 					<th>Рейтинг
 				</tr>
@@ -201,6 +221,8 @@
 				@endforeach
 			</tbody>
 		</table>
+		
+		</div>
 		
 		
     </body>
