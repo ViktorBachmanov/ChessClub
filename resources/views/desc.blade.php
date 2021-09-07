@@ -47,12 +47,15 @@
 			
 			section {
 				text-indent: 1rem;
-				box-shadow: 0 0 2px 2px gray;
+				/*box-shadow: 0 0 2px 2px gray;*/
+				background-color: rgba(215, 224, 220, 0.22);
 				border-radius: 1rem;
 				margin: 1rem;
+				padding: 1rem;
 				max-width: 100%;
 				
-				display: flex;
+				/*display: flex;
+				justify-content: center;*/
 			}
 			
 			.cont {
@@ -62,10 +65,7 @@
 			
 			.screenshots {
 				flex: 1 1 auto;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;				
+									
 			}
 			
 			.screenshots img {
@@ -102,28 +102,35 @@
 		
 		
 		<section>
+			<img src='pics/table.png' style='max-width: 450px; float: right'>
+			<p>
 			База результатов шахматных партий и рейтингов игроков. Итоговая турнирная таблица 
 			сортируется по убыванию рейтинга. 
+			
 			<p>
 			В случае, если таблица не умещается на экране - правая ее часть становится подвижной.
-			<img src='pics/table.png' style='max-width: 450px'>
+			
 		</section>	
 		
 		<section>
 			<div class='screenshots'>
+			<img src='pics/new.png' style='float: left'>
+			<p style='max-width: 10rem; display: inline-block'>
 				Пользователи с правами 
-				администратора могут добавлять новые партии в базу,&nbsp;
+				администратора могут добавлять новые партии в базу&nbsp;
 			
-				<img src='pics/new.png'>
+				
 			</div>
 		</section>
 		
 		<section>
 			<div class='screenshots'>
-				а также удалять последнюю (в случае
+			<img src='pics/del.png' style='float: right'>
+			<p style='max-width: 10rem; display: inline-block'>
+				А также удалять последнюю (в случае
 				какой-либо ошибки при добавлении)		
 				
-				<img src='pics/del.png'>
+				
 			</div>
 		</section>
 		
