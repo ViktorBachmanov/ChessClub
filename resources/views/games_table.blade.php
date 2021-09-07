@@ -25,6 +25,7 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+				text-align: center;
             }
 			
 			td {
@@ -64,7 +65,8 @@
 								tableEl.offsetWidth + 'px';*/
 				@endif
 				
-				setBodyWidth();
+				/*let tableWidth = document.querySelector('table').offsetWidth;
+				setBodyWidth(tableWidth);*/
 				
 			});
 		</script>
@@ -73,6 +75,7 @@
 	
 	
     <body>
+		<div style='display: inline-block; margin: 0 auto; '>
 	
 		<x-header :isGames='true'/>
 		
@@ -109,7 +112,7 @@
 			</tbody>
 		</table>
 		
-		
+		</div>
     </body>
 	
 </html>

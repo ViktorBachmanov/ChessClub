@@ -24,9 +24,7 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
+				
             }
 			
 			.fio {
@@ -127,14 +125,17 @@
 				})
 				.css('cursor', 'pointer');
 				
-				//setBodyWidth();
+				//
 				
 				const smartTable = new SmartTable;
 				
-				setHeaderWidth(smartTable);
+				//setHeaderWidth(smartTable);
+				//setBodyWidth(smartTable.width);
 				
 				$(window).on('resize', () => {
-					setHeaderWidth(smartTable);
+					//setHeaderWidth(smartTable);
+					//setBodyWidth($(window).width());
+					//setBodyWidth(smartTable.width);
 				});
 				
 			});
@@ -145,7 +146,9 @@
     </head>
 	
 	
-    <body>
+    <body style='text-align: center;'>
+	
+		<div style='display: inline-block; margin: 0 auto; max-width: 100%'>
 		
 		<x-header :isTable='true'/>
 		
@@ -153,8 +156,7 @@
 		
 			<div id='moving_frame' style='overflow: auto'></div>
 			
-		<table style='position: absolute; top: 0; left: 0; background-color: transparent; 
-					pointer-events: none; '>
+		<table style=' '>
 			<thead>
 				<tr>
 					<th>№
@@ -224,7 +226,7 @@
 		
 		</div>
 		
-		
+		</div>
     </body>
 	
 </html>

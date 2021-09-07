@@ -6,7 +6,9 @@ class SmartTable {
 		this._fixedTable = this._frame.querySelector('table');
 		this._movingTable = this._fixedTable.cloneNode(true);
 		
-		this._movingTable.style.position = 'relative';
+		this.setFixedTableStyle();
+		
+		//this._movingTable.style.position = 'relative';
 		
 		this._movingFrame.append(this._movingTable);
 		
@@ -14,6 +16,15 @@ class SmartTable {
 		this.setFixedTableBackgroundColor();
 		
 		this.setMovingTableShadow();
+	}
+	
+	
+	setFixedTableStyle() {
+		this._fixedTable.style.position = 'absolute';
+		this._fixedTable.style.top = 0;
+		this._fixedTable.style.left = 0;
+		this._fixedTable.style.backgroundColor = 'transparent';
+		this._fixedTable.style.pointerEvents = 'none';
 	}
 	
 	
