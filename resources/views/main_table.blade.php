@@ -13,10 +13,10 @@
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		
-		<script src='js/util.js?2'></script>
-		<script src='js/SmartTable.js?4'></script>
+		<script src='js/util.js?3'></script>
+		<script src='js/SmartTable.js?5'></script>
 	
-		<link rel="Stylesheet" href="css/base.css?11">
+		<link rel="Stylesheet" href="css/base.css?12">
 		
 		
         <!-- Styles -->
