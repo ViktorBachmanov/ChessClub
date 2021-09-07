@@ -16,7 +16,7 @@
 		<script src='js/util.js?3'></script>
 		<script src='js/SmartTable.js?6'></script>
 	
-		<link rel="Stylesheet" href="css/base.css?12">
+		<link rel="Stylesheet" href="css/base.css?13">
 		
 		
         <!-- Styles -->
