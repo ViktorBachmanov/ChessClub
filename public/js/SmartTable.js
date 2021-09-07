@@ -8,7 +8,7 @@ class SmartTable {
 		
 		this.setFixedTableStyle();
 		
-		//this._movingTable.style.position = 'relative';
+		this._movingTable.style.position = 'relative';
 		
 		this._movingFrame.append(this._movingTable);
 		
@@ -37,6 +37,7 @@ class SmartTable {
 				if(j == 0 || j == 1) {
 					row.cells[j].style.backgroundColor = 'white';
 					row.cells[j].style.boxShadow = '2px 2px 2px gray';
+					row.cells[j].style.pointerEvents = 'auto';
 					/*if(i == 0) {
 						row.cells[j].style.boxShadow = '2px -2px 2px gray';
 					}*/
