@@ -14,10 +14,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		
 		
-		<script src='js/util.js?2'></script>
+		<script src='js/util.js?3'></script>
 		
 	
-		<link rel="Stylesheet" href="css/base.css?11">
+		<link rel="Stylesheet" href="css/base.css?13">
 		
 				
         <!-- Styles -->
@@ -25,6 +25,7 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+				text-align: center;
             }
 			
 			td {
@@ -33,7 +34,7 @@
 			
 			button {
 				display: inline-block;
-				margin: 1rem;
+				margin: 0 1rem 0.5rem;
 			}
 			
 			#buttons_div {
@@ -41,7 +42,14 @@
 				margin-bottom: 1rem;
 			}
 			
+			.cell {
+				display: flex;
+				justify-content: space-between;;
+			}
 			
+			.winner {
+				background-color: rgba(50, 252, 84, 0.11);
+			}
         </style>
 		
 
@@ -57,7 +65,8 @@
 								tableEl.offsetWidth + 'px';*/
 				@endif
 				
-				setBodyWidth();
+				/*let tableWidth = document.querySelector('table').offsetWidth;
+				setBodyWidth(tableWidth);*/
 				
 			});
 		</script>
@@ -66,6 +75,7 @@
 	
 	
     <body>
+		<div style='display: inline-block; margin: 0 auto; '>
 	
 		<x-header :isGames='true'/>
 		
@@ -86,25 +96,23 @@
 		<table>
 			<thead>
 				<th>Белые
-				<th>Черные
 				<th>Дата
-				<th>Выиграл
+				<th>Черные
 			</thead>
 			
 			<tbody>
 				@foreach($games as $game)
 					<tr>
-						<td>{{ $game->getWhiteFio(); }}
-						<td>{{ $game->getBlackFio(); }}
+						<td @class(['winner' => $game->isWhiteWon()])>{{ $game->getWhiteFio(); }}
 						<td>{{ $game->getDate(); }}
-						<td>{{ $game->getWinner(); }}
+						<td @class(['winner' => $game->isBlackWon()])>{{ $game->getBlackFio(); }}
 					</tr>
 				@endforeach
 				
 			</tbody>
 		</table>
 		
-		
+		</div>
     </body>
 	
 </html>

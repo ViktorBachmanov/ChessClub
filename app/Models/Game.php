@@ -44,6 +44,16 @@ class Game extends Model
 		}
 	}
 	
+	public function isWhiteWon()
+	{
+		return $this->white == $this->winner;
+	}
+	
+	public function isBlackWon()
+	{
+		return $this->black == $this->winner;
+	}
+	
 	
 }
 

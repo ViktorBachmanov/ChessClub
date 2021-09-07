@@ -42,7 +42,6 @@ li {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-	margin: 1px auto;
 }
 
 th {
@@ -68,13 +67,14 @@ td {
 	
 #header {
 	text-align: center;
-	margin: 0 1rem 1rem;
+	margin: 0 auto 1rem;
 	box-sizing: border-box;
 	
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	
+	width: 100%;
 	
 	padding: 0 1rem;
 	
@@ -89,13 +89,14 @@ td {
 	box-sizing: border-box;
 	font-size: 120%;
 	text-shadow: 2px 2px 2px silver;
+	color: darkblue;
 }
 
 #header .bg {
 	min-width: 30%; 
 	height: 4rem; 
 	flex: 1 1 35%;
-	margin-top: 4rem;
+	margin-top: 2rem;
 	padding: 0 1rem;
 	box-sizing: border-box;
 }	
