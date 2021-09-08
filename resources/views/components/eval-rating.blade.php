@@ -1,4 +1,4 @@
-<div class='code' style=''>
+<code class='language-php' style=' '>
     public function evalRating($opponentRating, $score)
     {
         $rating = $this->rating;
@@ -17,4 +17,4 @@
         $this->save();
     }
 	
-</div>
+</code>
