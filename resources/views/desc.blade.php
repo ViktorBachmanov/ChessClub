@@ -13,7 +13,8 @@
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	
-		<link rel="Stylesheet" href="css/base.css">
+		<link rel="Stylesheet" href="css/base.css?13">
+		<link rel="Stylesheet" href="css/main_table.css">
 		
 		
         <!-- Styles -->
@@ -87,12 +88,13 @@
 				margin-top: 1rem;
 			}
         </style>	
-	
 		
+	
+		<script src='js/SmartTable.js?6'></script>
 		
 		<script>
 			$(document).ready(function() {
-				
+				const smartTable = new SmartTable;
 			});
 		</script>
 		
@@ -104,7 +106,7 @@
 		
 		
 		<section>
-			<img src='pics/table.png' style='max-width: 450px; float: right'>
+			<x-smart-table :users=$users/>
 			<p>
 			База результатов шахматных партий и рейтингов игроков. Итоговая турнирная таблица 
 			сортируется по убыванию рейтинга. 
