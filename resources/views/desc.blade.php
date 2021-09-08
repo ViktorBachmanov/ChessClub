@@ -28,6 +28,8 @@
 			
 			h2 {
 				margin: 1rem;
+				display: block;
+				text-align: center;
 			}
 			
 			code {
@@ -42,7 +44,7 @@
 				border-radius: 0.25rem;
 				white-space: pre; 
 				overflow: auto; 
-				flex: 1 1 60%
+				float: right;
 			}
 			
 			section {
@@ -135,7 +137,7 @@
 		</section>
 		
 		<section>
-			<div style='flex: 1 3 15%'>
+			<div style='max-width: 10rem; display: inline-block'>
 			При добавлении партии в базу, 
 			 изменение рейтингов участников игры автоматически вычисляется 
 			 по формуле Эло. 
