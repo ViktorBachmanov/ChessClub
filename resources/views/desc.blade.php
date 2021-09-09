@@ -220,7 +220,7 @@
 				получить по почте ссылку на задание нового пароля.
 			</div>
 			
-			<img src='pics/sent.png'>
+			<img src='pics/sent.png' style='width: 235px'>
 		</section>
 		
 		<section  class='auth'>
