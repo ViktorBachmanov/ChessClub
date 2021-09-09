@@ -15,14 +15,26 @@ class MainTableController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {		
+        return view('main_table', ['users' => $this->getTableUsers()]);
+    }
+	
+	
+	public function desc()
     {
+		return view('desc', ['users' => $this->getTableUsers()]);
+    }
+	
+	
+	private function getTableUsers()
+	{
 		$users = User::all();
 		$filteredUsers = $users->filter(function($user) {
 			return $user->getTotalGames() > 0;
 		});
 		
-        return view('main_table', ['users' => $filteredUsers->sortByDesc('rating')]);
-    }
+		return $filteredUsers->sortByDesc('rating');		
+	}
 	
 	/*
 	public function select(Request $request)

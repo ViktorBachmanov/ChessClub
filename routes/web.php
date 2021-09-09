@@ -66,9 +66,7 @@ Route::get('/sent', function() {
 									'email' => 'info@chess']);
 });*/
 
-Route::get('/desc', function() {
-	return view('desc');
-});
+Route::get('/desc', [MainTableController::class, 'desc']);
 
 
 Route::get('/games', [GamesController::class, 'index']);
