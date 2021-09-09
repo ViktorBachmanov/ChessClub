@@ -59,7 +59,7 @@
 			section {
 				/*text-indent: 1rem;*/
 				/*box-shadow: 0 0 2px 2px gray;*/
-				background-color: rgba(215, 224, 220, 0.22);
+				/*background-color: rgba(215, 224, 220, 0.22);*/
 				border-radius: 1rem;
 				margin: 1rem;
 				padding: 1rem;
