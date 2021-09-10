@@ -80,6 +80,19 @@ public function sendPasswordResetNotification($token)
     }
 	
 	
+	public function getColorForDay($color, $day)
+    {
+		if($day == 'all') {
+			return Game::where($color, $this->id);
+			
+		}
+		else {
+			return Game::where($color, $this->id)
+					->where('date', $day);
+		}
+    }
+	
+	
 	public function evalRating($opponentRating, $score)
     {
 		$rating = $this->rating;
@@ -138,18 +151,18 @@ public function sendPasswordResetNotification($token)
 		file_put_contents('debug/value.txt', "rating: " . $this->rating . "\n\n", FILE_APPEND);
     }
 	
-	public function getTotalGames() {
-		$whiteTotal = $this->white->count();
-		$blackTotal = $this->black->count();
+	public function getTotalGames($day) {
+		$whiteTotal = $this->getColorForDay('white', $day)->count();
+		$blackTotal = $this->getColorForDay('black', $day)->count();
 		$gamesTotal = $whiteTotal + $blackTotal;
 		
 		return $gamesTotal;
 	}
 	
 	
-	public function evalScore($opponentId) {
-		$whiteScore = $this->getColorScore('white', $opponentId);
-		$blackScore = $this->getColorScore('black', $opponentId);
+	public function evalScore($opponentId, $day) {
+		$whiteScore = $this->getColorScore('white', $opponentId, $day);
+		$blackScore = $this->getColorScore('black', $opponentId, $day);
 		$totalScore = $whiteScore + $blackScore;
 		
 		//file_put_contents('debug/value.txt', "evalScoreUser1User2: " . $whiteScore . "\n", FILE_APPEND);
@@ -157,10 +170,11 @@ public function sendPasswordResetNotification($token)
 		return $totalScore;
 	}
 	
-	private function getColorScore($color1, $opponentId) {
+	private function getColorScore($color1, $opponentId, $day) {
 	$color2 = $color1 == 'white' ? 'black' : 'white';
 	$games = Game::where($color1, $this->id)
 					->where($color2, $opponentId)
+					->where('date', $day)
 					->get();
 	$score = 0;
 	for($i = 0; $i < $games->count(); $i++) {

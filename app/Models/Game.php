@@ -4,7 +4,10 @@ namespace App\Models;
 
 use App\Models\User;
 
-use DateTime;
+
+
+use App\Util\ConvertDate;
+//require_once app_path('Util/ConvertDate.php');
 
 
 //use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,6 +16,9 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     //use HasFactory;
+	
+	//use ConvertDate;
+	
 	
 	public $timestamps = false;
 	
@@ -29,9 +35,7 @@ class Game extends Model
 	
 	public function getDate()
     {
-		$date = new DateTime($this->date);
-		
-		return $date->format('d.m.y');
+		return convertDate($this->date);
 	}
 
 	public function getWinner()

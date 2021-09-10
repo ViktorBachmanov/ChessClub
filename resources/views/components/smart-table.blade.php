@@ -1,4 +1,4 @@
-@props(['users'])
+@props(['users', 'days', 'day'])
 
 <div id='smart_table' style='position: relative; max-width: 100%; overflow: hidden;'>
 		
@@ -57,7 +57,7 @@
 								@endphp
 							@else
 								@php
-									$score = $user->evalScore($opponent->id);
+									$score = $user->evalScore($opponent->id, $day);
 									$totalScore += $score;
 								@endphp
 								{{ $score; }}
@@ -66,7 +66,7 @@
 						</td>
 					@endforeach
 					<td class='totalScore'>{{ $totalScore; }}
-					<td>{{ $user->getTotalGames(); }}
+					<td>{{ $user->getTotalGames($day); }}
 					<td>{{ $user->rating; }}</td>
 				</tr>
 			@endforeach
@@ -74,3 +74,39 @@
 	</table>
 		
 </div>
+
+<form method='post' action='/day' style='margin: 1rem'>
+	@csrf
+	
+	@php
+		use App\Util\ConvertDate;
+		
+		
+	@endphp
+	
+	<label>Игровой день:&nbsp;
+	<select name='day' onchange='document.forms[0].submit()'>
+		<option value='all'>Все
+		@foreach($days as $day)
+			
+			@php
+			
+			$date;
+			if($day == 'all') 
+				$date = 'Все';			
+			else 
+				$date = (new ConvertDate($day))->format();
+			
+			@endphp
+			
+			<option value='{{ $day }}'>{{ $date }}
+		@endforeach
+	</select>
+	</label>
+</form>
+
+<script>
+	document.querySelector('option[value="{{ $day }}"]').selected = true;
+</script>
+
+

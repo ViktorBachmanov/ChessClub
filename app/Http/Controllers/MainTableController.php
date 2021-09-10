@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Game;
 
+use Illuminate\Support\Facades\DB;
+
+
 class MainTableController extends Controller
 {
     /**
@@ -16,7 +19,19 @@ class MainTableController extends Controller
      */
     public function index()
     {		
-        return view('main_table', ['users' => $this->getTableUsers()]);
+        return view('main_table', ['users' => $this->getTableUsers('all'),
+									'days' => DB::table('games')->pluck('date')->unique(),
+									'day' => 'all']);
+    }
+	
+	
+	public function day(Request $request)
+    {
+		$day = $request->day;
+		
+        return view('main_table', ['users' => $this->getTableUsers($day),
+									'days' => DB::table('games')->pluck('date')->unique(),
+									'day' => $day]);
     }
 	
 	
@@ -26,15 +41,20 @@ class MainTableController extends Controller
     }
 	
 	
-	private function getTableUsers()
+	private function getTableUsers($day)
 	{
 		$users = User::all();
-		$filteredUsers = $users->filter(function($user) {
-			return $user->getTotalGames() > 0;
+		$filteredUsers = $users->filter(function($user) use ($day) {
+			return $user->getTotalGames($day) > 0;
 		});
 		
 		return $filteredUsers->sortByDesc('rating');		
 	}
+	/*
+	private function getDays()
+	{
+		return Game::all()->unique();
+	}*/
 	
 	/*
 	public function select(Request $request)
