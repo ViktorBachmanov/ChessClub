@@ -85,7 +85,7 @@
 		<x-header :isTable='true'/>
 		
 		
-		<x-smart-table :users=$users/>		
+		<x-smart-table :users=$users :days=$days :day=$day/>		
 		
 		
 		</div>

@@ -72,4 +72,5 @@ Route::get('/desc', [MainTableController::class, 'desc']);
 Route::get('/games', [GamesController::class, 'index']);
 
 
+Route::post('/day', [MainTableController::class, 'day']);
 
