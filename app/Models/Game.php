@@ -35,7 +35,7 @@ class Game extends Model
 	
 	public function getDate()
     {
-		return convertDate($this->date);
+		return (new ConvertDate($this->date))->format();
 	}
 
 	public function getWinner()
