@@ -1,5 +1,26 @@
 @props(['users', 'days', 'day'])
 
+<form method='post' action='{{ url()->current() }}' style='margin: 1rem; text-align: center'>
+	@csrf
+	
+	@php
+		use App\Util\ConvertDate;		
+	@endphp
+	
+	<label>Игровой день:&nbsp;
+	<select name='day' onchange='document.forms[0].submit()'>
+		<option value='all'>Все
+		@foreach($days as $selectDay)			
+			<option value='{{ $selectDay }}'>{{ (new ConvertDate($selectDay))->format() }}
+		@endforeach
+	</select>
+	</label>
+</form>
+
+<script>
+	document.querySelector('option[value="{{ $day }}"]').selected = true;
+</script>
+
 <div id='smart_table' style='position: relative; max-width: 100%; overflow: hidden;'>
 		
 	<div id='moving_frame' style='overflow: auto'>
@@ -75,25 +96,7 @@
 		
 </div>
 
-<form method='post' action='/day' style='margin: 1rem'>
-	@csrf
-	
-	@php
-		use App\Util\ConvertDate;		
-	@endphp
-	
-	<label>Игровой день:&nbsp;
-	<select name='day' onchange='document.forms[0].submit()'>
-		<option value='all'>Все
-		@foreach($days as $selectDay)			
-			<option value='{{ $selectDay }}'>{{ (new ConvertDate($selectDay))->format() }}
-		@endforeach
-	</select>
-	</label>
-</form>
 
-<script>
-	document.querySelector('option[value="{{ $day }}"]').selected = true;
-</script>
+
 
 

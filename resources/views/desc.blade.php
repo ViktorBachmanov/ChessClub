@@ -156,7 +156,7 @@
 			</div>	
 			
 			<div style='max-width: 100%; margin: 1rem 0'>
-				<x-smart-table :users=$users/>
+				<x-smart-table :users=$users :days=$days :day=$day/>
 			</div>
 		</div>	
 		

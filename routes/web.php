@@ -24,6 +24,7 @@ Route::get('/', function () {
 });
 */
 Route::get('/', [MainTableController::class, 'index'])->name('table');
+Route::post('/', [MainTableController::class, 'index']);
 
 //Route::post('/select', [MainTableController::class, 'select'])->name('table');
 
@@ -67,10 +68,11 @@ Route::get('/sent', function() {
 });*/
 
 Route::get('/desc', [MainTableController::class, 'desc']);
+Route::post('/desc', [MainTableController::class, 'desc']);
 
 
 Route::get('/games', [GamesController::class, 'index']);
 
 
-Route::post('/day', [MainTableController::class, 'day']);
+//Route::post('/day', [MainTableController::class, 'day']);
 

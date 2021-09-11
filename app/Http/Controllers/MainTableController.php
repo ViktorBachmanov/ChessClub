@@ -17,14 +17,20 @@ class MainTableController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {		
-        return view('main_table', ['users' => $this->getTableUsers('all'),
-									'days' => DB::table('games')->pluck('date')->unique(),
-									'day' => 'all']);
+    public function index(Request $request)
+    {	
+		$day;
+		if($request->has('day')) {
+			$day = $request->day;
+		}
+		else {
+			$day = 'all';
+		}
+		
+        return view('main_table', $this->formDataArray($day));
     }
 	
-	
+	/*
 	public function day(Request $request)
     {
 		$day = $request->day;
@@ -32,13 +38,27 @@ class MainTableController extends Controller
         return view('main_table', ['users' => $this->getTableUsers($day),
 									'days' => DB::table('games')->pluck('date')->unique(),
 									'day' => $day]);
-    }
+    }*/
 	
 	
-	public function desc()
+	public function desc(Request $request)
     {
-		return view('desc', ['users' => $this->getTableUsers()]);
+		$day;
+		if($request->has('day')) {
+			$day = $request->day;
+		}
+		else {
+			$day = 'all';
+		}
+		return view('desc', $this->formDataArray($day));
     }
+	
+	
+	private function formDataArray($day) {
+		return ['users' => $this->getTableUsers($day),
+				'days' => DB::table('games')->pluck('date')->unique(),
+				'day' => $day];
+	}
 	
 	
 	private function getTableUsers($day)
