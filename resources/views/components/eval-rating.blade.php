@@ -15,6 +15,5 @@ public function evalRating($opponentRating, $score)
 	$this->rating = $rating + $koef * ($score - $expectedScore);
 	
 	$this->save();
-}
-	
+}	
 </code>
