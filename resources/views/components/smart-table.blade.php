@@ -79,27 +79,14 @@
 	@csrf
 	
 	@php
-		use App\Util\ConvertDate;
-		
-		
+		use App\Util\ConvertDate;		
 	@endphp
 	
 	<label>Игровой день:&nbsp;
 	<select name='day' onchange='document.forms[0].submit()'>
 		<option value='all'>Все
-		@foreach($days as $day)
-			
-			@php
-			
-			$date;
-			if($day == 'all') 
-				$date = 'Все';			
-			else 
-				$date = (new ConvertDate($day))->format();
-			
-			@endphp
-			
-			<option value='{{ $day }}'>{{ $date }}
+		@foreach($days as $selectDay)			
+			<option value='{{ $selectDay }}'>{{ (new ConvertDate($selectDay))->format() }}
 		@endforeach
 	</select>
 	</label>

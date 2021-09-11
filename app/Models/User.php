@@ -172,10 +172,22 @@ public function sendPasswordResetNotification($token)
 	
 	private function getColorScore($color1, $opponentId, $day) {
 	$color2 = $color1 == 'white' ? 'black' : 'white';
-	$games = Game::where($color1, $this->id)
+	
+	$games;
+	
+	if($day == 'all') {
+		$games = Game::where($color1, $this->id)
+					->where($color2, $opponentId)
+					->get();
+	}
+	else {
+		$games = Game::where($color1, $this->id)
 					->where($color2, $opponentId)
 					->where('date', $day)
-					->get();
+					->get();		
+	}
+	
+	
 	$score = 0;
 	for($i = 0; $i < $games->count(); $i++) {
 		//file_put_contents('debug/value.txt', "user1Id: " . $user1Id . "\n", FILE_APPEND);
