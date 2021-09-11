@@ -132,6 +132,10 @@
 		<script>
 			$(document).ready(function() {
 				const smartTable = new SmartTable;
+				
+				$('input[name="sorting"]').on('change', function() {
+					document.forms[0].submit();
+				});
 			});
 		</script>
 		
@@ -156,7 +160,7 @@
 			</div>	
 			
 			<div style='max-width: 100%; margin: 1rem 0'>
-				<x-smart-table :users=$users :days=$days :day=$day/>
+				<x-smart-table :users=$users :days=$days :day=$day :sorting=$sorting/>
 			</div>
 		</div>	
 		

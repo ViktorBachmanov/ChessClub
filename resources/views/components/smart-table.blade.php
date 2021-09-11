@@ -1,6 +1,6 @@
-@props(['users', 'days', 'day'])
+@props(['users', 'days', 'day', 'sorting'])
 
-<form method='post' action='{{ url()->current() }}' style='margin: 1rem; text-align: center'>
+<form id='table_form' method='post' action='{{ url()->current() }}' style='margin: 1rem; text-align: center'>
 	@csrf
 	
 	@php
@@ -34,11 +34,34 @@
 				@foreach($users as $user)
 					<th>{{ $loop->iteration }}
 				@endforeach
-				<th class='totalScore' style='box-shadow: inset 0px 2px 2px gray;'>Очки
+				<th class='totalScore' style='box-shadow: inset 0px 2px 2px gray;'>
+					Очки
+					<input type='radio' name='sorting' form='table_form' value='score'>
+				</th>
 				<th>Игры
-				<th>Рейтинг
+				<th>
+					Рейтинг
+					<input type='radio' name='sorting' form='table_form' value='rating'>
+				</th>
 			</tr>
 		</thead>
+		
+		<script>
+			document.querySelector('input[value="{{ $sorting }}"]').checked = true;
+			/*
+			$('input[name="sorting"]').on('click', function() {
+				//document.forms[0].submit();
+				alert('sorting changed');
+			});*/
+			/*
+			let radioArr = document.querySelectorAll('input[name="sorting"]');
+			for(let i = 0; i < radioArr.length; i++) {
+				radioArr[i].addEventListener('click', function() {
+					alert('sorting changed');
+				});
+			}
+			*/
+		</script>
 		
 		<tbody>
 			@foreach($users as $user)
@@ -86,7 +109,7 @@
 							
 						</td>
 					@endforeach
-					<td class='totalScore'>{{ $totalScore; }}
+					<td class='totalScore'>{{ $user->evalTotalScore($day) }}
 					<td>{{ $user->getTotalGames($day); }}
 					<td>{{ $user->rating; }}</td>
 				</tr>
@@ -95,8 +118,3 @@
 	</table>
 		
 </div>
-
-
-
-
-
