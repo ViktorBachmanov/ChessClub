@@ -61,6 +61,10 @@
 				
 				const smartTable = new SmartTable;
 				
+				$('input[name="sorting"]').on('change', function() {
+					document.forms[0].submit();
+				});
+				
 				//setHeaderWidth(smartTable);
 				//setBodyWidth(smartTable.width);
 				
@@ -85,7 +89,7 @@
 		<x-header :isTable='true'/>
 		
 		
-		<x-smart-table :users=$users :days=$days :day=$day/>		
+		<x-smart-table :users=$users :days=$days :day=$day :sorting=$sorting/>		
 		
 		
 		</div>

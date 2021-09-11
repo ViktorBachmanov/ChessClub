@@ -19,15 +19,7 @@ class MainTableController extends Controller
      */
     public function index(Request $request)
     {	
-		$day;
-		if($request->has('day')) {
-			$day = $request->day;
-		}
-		else {
-			$day = 'all';
-		}
-		
-        return view('main_table', $this->formDataArray($day));
+		return view('main_table', $this->formDataArray($request));
     }
 	
 	/*
@@ -43,32 +35,65 @@ class MainTableController extends Controller
 	
 	public function desc(Request $request)
     {
-		$day;
-		if($request->has('day')) {
-			$day = $request->day;
-		}
-		else {
-			$day = 'all';
-		}
-		return view('desc', $this->formDataArray($day));
+		return view('desc', $this->formDataArray($request));
     }
 	
 	
-	private function formDataArray($day) {
-		return ['users' => $this->getTableUsers($day),
+	private function formDataArray($request) {
+		$day;
+		$sorting;
+		if($request->has('day')) {
+			$day = $request->day;
+			$sorting = $request->sorting;
+		}
+		else {
+			$day = 'all';
+			$sorting = 'rating';
+		}
+		
+		return ['users' => $this->getTableUsers($day, $sorting),
 				'days' => DB::table('games')->pluck('date')->unique(),
-				'day' => $day];
+				'day' => $day,
+				'sorting' => $sorting];
 	}
 	
 	
-	private function getTableUsers($day)
+	private function getTableUsers($day, $sorting)
 	{
 		$users = User::all();
 		$filteredUsers = $users->filter(function($user) use ($day) {
 			return $user->getTotalGames($day) > 0;
 		});
 		
-		return $filteredUsers->sortByDesc('rating');		
+		if($sorting == 'rating')		
+			return $filteredUsers->sortByDesc('rating');
+		else {
+			 $sortedUsers = $filteredUsers->sort(function($a, $b) use ($day) {
+				$scoreA = $a->evalTotalScore($day);
+				$scoreB = $b->evalTotalScore($day);
+				
+				if($scoreA == $scoreB)
+					return 0;
+				else if($scoreA > $scoreB)
+					return -1;
+				else
+					return 1;
+			});
+			
+			$sortedUsers = $sortedUsers->sort(function($a, $b) use ($day) {
+				$gamesA = $a->getTotalGames($day);
+				$gamesB = $a->getTotalGames($day);
+				
+				if($gamesA == $gamesB)
+					return 0;
+				else if($gamesA > $gamesB)
+					return -1;
+				else
+					return 1;
+			});
+			
+			return $sortedUsers;
+		}
 	}
 	/*
 	private function getDays()

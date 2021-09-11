@@ -160,6 +160,20 @@ public function sendPasswordResetNotification($token)
 	}
 	
 	
+	public function evalTotalScore($day) {
+		$totalScore = 0;
+		
+		$users = User::all();
+		for($i = 0; $i < $users->count(); $i++) {
+			if($users[$i]->id == $this->id)
+				continue;
+			
+			$totalScore += $this->evalScore($users[$i]->id, $day);
+		}
+		
+		return $totalScore;
+	}	
+	
 	public function evalScore($opponentId, $day) {
 		$whiteScore = $this->getColorScore('white', $opponentId, $day);
 		$blackScore = $this->getColorScore('black', $opponentId, $day);
@@ -171,40 +185,40 @@ public function sendPasswordResetNotification($token)
 	}
 	
 	private function getColorScore($color1, $opponentId, $day) {
-	$color2 = $color1 == 'white' ? 'black' : 'white';
-	
-	$games;
-	
-	if($day == 'all') {
-		$games = Game::where($color1, $this->id)
-					->where($color2, $opponentId)
-					->get();
-	}
-	else {
-		$games = Game::where($color1, $this->id)
-					->where($color2, $opponentId)
-					->where('date', $day)
-					->get();		
-	}
-	
-	
-	$score = 0;
-	for($i = 0; $i < $games->count(); $i++) {
-		//file_put_contents('debug/value.txt', "user1Id: " . $user1Id . "\n", FILE_APPEND);
-		//file_put_contents('debug/value.txt', "game->winner: " . $games[$i]->winner . "\n", FILE_APPEND);
-		if($games[$i]->winner == $this->id) {
-			$score += 1;
-			//file_put_contents('debug/value.txt', "score: " . $score . "\n", FILE_APPEND);
+		$color2 = $color1 == 'white' ? 'black' : 'white';
+		
+		$games;
+		
+		if($day == 'all') {
+			$games = Game::where($color1, $this->id)
+						->where($color2, $opponentId)
+						->get();
 		}
-		else if(!$games[$i]->winner) {
-			$score += 0.5;
-			//file_put_contents('debug/value.txt', "score: " . $score . "\n", FILE_APPEND);
+		else {
+			$games = Game::where($color1, $this->id)
+						->where($color2, $opponentId)
+						->where('date', $day)
+						->get();		
 		}
 		
-	};
-	
-	//file_put_contents('debug/value.txt', "getColorScore return: " . $score . "\n", FILE_APPEND);
-	
-	return $score;
-}
+		
+		$score = 0;
+		for($i = 0; $i < $games->count(); $i++) {
+			//file_put_contents('debug/value.txt', "user1Id: " . $user1Id . "\n", FILE_APPEND);
+			//file_put_contents('debug/value.txt', "game->winner: " . $games[$i]->winner . "\n", FILE_APPEND);
+			if($games[$i]->winner == $this->id) {
+				$score += 1;
+				//file_put_contents('debug/value.txt', "score: " . $score . "\n", FILE_APPEND);
+			}
+			else if(!$games[$i]->winner) {
+				$score += 0.5;
+				//file_put_contents('debug/value.txt', "score: " . $score . "\n", FILE_APPEND);
+			}
+			
+		};
+		
+		//file_put_contents('debug/value.txt', "getColorScore return: " . $score . "\n", FILE_APPEND);
+		
+		return $score;
+	}
 }
