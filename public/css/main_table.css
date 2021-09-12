@@ -21,6 +21,13 @@
 	vertical-align: middle;
 }*/
 
+.crown {
+	background: url(/pics/crown3_t.gif) no-repeat center center;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+}
+
 .medal {
 	width: 2rem;
 	height: 2rem;

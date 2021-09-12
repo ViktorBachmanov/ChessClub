@@ -80,7 +80,8 @@
 								switch($loop->iteration) {
 									case 1:
 									 //echo "<img src='pics/chess_gold_t.png' class='medal'>";
-									 echo '<div class="medal gold">I</>';
+									 echo '<div class="crown"></>';
+									 //echo '<img src="pics/crown3_t.png" style="width: 100%">';
 									 
 									 break;
 									
