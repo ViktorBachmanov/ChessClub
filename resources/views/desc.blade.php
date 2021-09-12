@@ -14,7 +14,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	
 		<link rel="Stylesheet" href="css/base.css?13">
-		<link rel="Stylesheet" href="css/main_table.css">
+		<link rel="Stylesheet" href="css/main_table.css?1">
 		
 		<link rel="stylesheet" href="css/prism.css"  />
 		
