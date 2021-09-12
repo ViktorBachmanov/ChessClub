@@ -151,7 +151,7 @@ public function sendPasswordResetNotification($token)
 		file_put_contents('debug/value.txt', "rating: " . $this->rating . "\n\n", FILE_APPEND);
     }
 	
-	public function getTotalGames($day) {
+	public function getTotalGames($day = 'all') {
 		$whiteTotal = $this->getColorForDay('white', $day)->count();
 		$blackTotal = $this->getColorForDay('black', $day)->count();
 		$gamesTotal = $whiteTotal + $blackTotal;
