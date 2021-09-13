@@ -5,7 +5,7 @@
 	<div class='bg' style='background: url(pics/mesh5_r.png?1) center center no-repeat;
 							background-size: cover; position: relative'>
 							
-							<div style='background: url(pics/white_figures_3_t_ps.gif?1) center center no-repeat;
+							<div style='background: url(pics/white_figures_3_t.gif?1) center center no-repeat;
 								background-size: contain; position: absolute; top: 10%; left: 10%;
 								width: 80%; height: 80%'>
 							</div>
@@ -20,7 +20,7 @@
 	<div class='bg' style='background: url(pics/mesh5_l.png?1) center center no-repeat;
 							background-size: cover; position: relative'>
 							
-							<div style='background: url(pics/black_figures_3_t.png?1) center center no-repeat;
+							<div style='background: url(pics/black_figures_3_t.gif?1) center center no-repeat;
 								background-size: contain; position: absolute; top: 10%; left: 10%;
 								width: 80%; height: 80%'>
 							</div>
