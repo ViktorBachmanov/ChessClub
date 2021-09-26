@@ -13,8 +13,7 @@
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		
-		<script src='js/SmartTable.js?6'></script>
-	
+			
 		<link rel="Stylesheet" href="css/base.css?13">
 		<link rel="Stylesheet" href="css/main_table.css?1">
 		
@@ -37,33 +36,6 @@
 			}*/
         </style>
 		
-
-		
-	
-		
-		
-		<script>
-			$(document).ready(function() {
-								
-				$('td:contains(Бачманов), td:contains(Петрухин)')
-				.on('click', function() {
-					location.href = '/login';
-				})
-				.css('cursor', 'pointer');
-				
-				
-				const smartTable = new SmartTable;
-				
-				$('input[name="sorting"]').on('change', function() {
-					document.forms[0].submit();
-				});
-				
-				
-			});
-			
-			
-		</script>
-		
     </head>
 	
 	
@@ -79,5 +51,7 @@
 		
 		</div>
     </body>
+
+	<script src='js/SmartTableBabel.js?7'></script>
 	
 </html>

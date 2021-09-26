@@ -125,26 +125,10 @@
         </style>	
 		
 	
-		<script src='js/SmartTable.js?6'></script>
-		
+				
 		<script src="js/prism.js"></script>
 		
-		<script>
-			$(document).ready(function() {
-				$('td:contains(Бачманов), td:contains(Петрухин)')
-				.on('click', function() {
-					location.href = '/login';
-				})
-				.css('cursor', 'pointer');
 				
-				const smartTable = new SmartTable;
-				
-				$('input[name="sorting"]').on('change', function() {
-					document.forms[0].submit();
-				});
-			});
-		</script>
-		
     </head>
 	
 	
@@ -250,14 +234,10 @@
 			<img src='pics/dontsent.png'>
 		</section>
 		
-		
-		
-		
-		
-		
-		
 	</div>	
 		
     </body>
+
+	<script src='js/SmartTableBabel.js?7'></script>
 	
 </html>

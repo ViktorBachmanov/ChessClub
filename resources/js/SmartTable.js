@@ -1,3 +1,6 @@
+import $ from 'jquery';
+
+
 class SmartTable {
 	constructor() {
 		this._frame = document.getElementById('smart_table');
@@ -64,3 +67,20 @@ class SmartTable {
 	}
 	
 }
+
+
+
+(function() {
+	$('td:contains(Бачманов), td:contains(Петрухин)')
+				.on('click', function() {
+					location.href = '/login';
+				})
+				.css('cursor', 'pointer');
+				
+				
+	new SmartTable;
+
+	$('input[name="sorting"]').on('change', function () {
+		document.forms[0].submit();
+	});
+})();

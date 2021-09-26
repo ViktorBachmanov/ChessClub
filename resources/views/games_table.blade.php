@@ -51,25 +51,7 @@
 				background-color: rgba(50, 252, 84, 0.11);
 			}
         </style>
-		
-
-		
 	
-		
-		
-		<script>
-			$(document).ready(function() {
-				@if(Auth::check())
-					/*let tableEl = document.querySelector('table');
-					document.querySelector('#buttons_div').style.width = 
-								tableEl.offsetWidth + 'px';*/
-				@endif
-				
-				/*let tableWidth = document.querySelector('table').offsetWidth;
-				setBodyWidth(tableWidth);*/
-				
-			});
-		</script>
 		
     </head>
 	
