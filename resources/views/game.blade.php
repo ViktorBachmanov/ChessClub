@@ -11,7 +11,6 @@
         <title>{{ $title }}</title>
 		
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -81,50 +80,6 @@
 			}
         </style>
 		
-		<script src='js/util.js'></script>
-		
-		
-		<script>
-			//window.onload = function() {
-			$(document).ready(function() {
-								
-				@if($action == 'store')
-					
-					selectRandomlyUserForColor('white');			
-					selectRandomlyUserForColor('black');
-
-					let form = document.forms[0];
-					form.onsubmit = () => {
-							if(form.white.value == form.black.value) {
-							//alert('Player self');
-							form.white.classList.add('self');
-							form.black.classList.add('self');
-							return false;
-						}
-						return true;
-					};
-					
-					$('select').on('click', function() {
-						$('select').removeClass('self');
-					});
-				
-				@else
-					$('input:not([name="_token"]), select').attr('disabled', 'true');
-					
-					let winner;
-					if( {{ (int)($game->winner == $game->white) }} ) {
-						winner = 'white';
-					}
-					else if( {{ (int)($game->winner == $game->black) }} ) {
-						winner = 'black';
-					}
-					else {
-						winner = 'none';
-					}
-					document.querySelector(`input[type='radio'][value=${winner}]`).checked = true;
-				@endif
-			});
-		</script>
 		
     </head>
 	
@@ -198,5 +153,27 @@
 	</form>
 	
     </body>
+
+								
+	@if($action == 'store')
+		<script src='js/storeGame.js'></script>		
+	@else
+		@php
+		$winner;
+		if( (int)($game->winner == $game->white) ) {
+			$winner = 'white';
+		}
+		else if( (int)($game->winner == $game->black) ) {
+			$winner = 'black';
+		}
+		else {
+			$winner = 'none';
+		}
+		@endphp
+		<script>
+			var winner = "{{ $winner }}";
+		</script>
+		<script src='js/deleteGame.js'></script>
+	@endif
 	
 </html>

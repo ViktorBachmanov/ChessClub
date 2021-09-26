@@ -5,7 +5,7 @@ function getRandomIntInclusive(min, max) {
 }
 
 
-function selectRandomlyUserForColor(color) {
+export function selectRandomlyUserForColor(color) {
 	let colorSelectEl = document.querySelector(`select[name="${color}"]`);
 	let colorOptions = colorSelectEl.options;
 	let randomId = getRandomIntInclusive(0, colorOptions.length - 1);

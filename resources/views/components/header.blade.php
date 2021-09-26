@@ -33,9 +33,3 @@
 	<a href='/games' @class(['active' => $isGames])>Игры</a>
 </nav>
 
-<script>
-	$('nav a').on('click', function() {
-		$('nav a').removeClass('active');
-		$(this).addClass('active');
-	});
-</script>
