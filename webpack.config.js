@@ -2,11 +2,14 @@ const path = require('path');
 
 
 module.exports = {
-    entry: './resources/js/SmartTable.js',
+    entry: {
+        SmartTable: './resources/js/SmartTable.js',
+        header: './resources/js/header.js'
+    },
 
     output: {
         path: path.resolve('./public/js/'),
-        filename: 'SmartTableBabel.js'
+        filename: '[name].js'
     },
 
     module: {
