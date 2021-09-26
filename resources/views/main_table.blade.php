@@ -13,7 +13,6 @@
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		
-		<script src='js/util.js?3'></script>
 		<script src='js/SmartTable.js?6'></script>
 	
 		<link rel="Stylesheet" href="css/base.css?13">
@@ -45,19 +44,13 @@
 		
 		<script>
 			$(document).ready(function() {
-				@if(Auth::check())
-					/*let tableEl = document.querySelector('table');
-					document.querySelector('#buttons_div').style.width = 
-								tableEl.offsetWidth + 'px';*/
-				@endif
-				
+								
 				$('td:contains(Бачманов), td:contains(Петрухин)')
 				.on('click', function() {
 					location.href = '/login';
 				})
 				.css('cursor', 'pointer');
 				
-				//
 				
 				const smartTable = new SmartTable;
 				
@@ -65,14 +58,6 @@
 					document.forms[0].submit();
 				});
 				
-				//setHeaderWidth(smartTable);
-				//setBodyWidth(smartTable.width);
-				
-				$(window).on('resize', () => {
-					//setHeaderWidth(smartTable);
-					//setBodyWidth($(window).width());
-					//setBodyWidth(smartTable.width);
-				});
 				
 			});
 			
