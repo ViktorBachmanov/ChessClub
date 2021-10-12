@@ -22,17 +22,7 @@ class MainTableController extends Controller
 		return view('main_table', $this->formDataArray($request));
     }
 	
-	/*
-	public function day(Request $request)
-    {
-		$day = $request->day;
 		
-        return view('main_table', ['users' => $this->getTableUsers($day),
-									'days' => DB::table('games')->pluck('date')->unique(),
-									'day' => $day]);
-    }*/
-	
-	
 	public function desc(Request $request)
     {
 		return view('desc', $this->formDataArray($request));
@@ -95,24 +85,6 @@ class MainTableController extends Controller
 			return $sortedUsers;
 		}
 	}
-	/*
-	private function getDays()
-	{
-		return Game::all()->unique();
-	}*/
 	
-	/*
-	public function select(Request $request)
-    {
-		$users;
-		$sortingType = $request->sorting;
-		if($sortingType == 'score') {
-			$users = User::all()->sort(function($a, $b) {
-				//return $a->
-			});
-		}
-		//$users = 
-		//return view('main_table', ['users' => $users]);
-	}*/
 
 }

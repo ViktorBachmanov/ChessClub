@@ -8,18 +8,18 @@
 			$title = $action == 'store' ? 'Новая партия' : 'Последняя партия';
 		@endphp
 
-        <title>{{ $title }}</title>
-		
+        <title>{{ $title }}</title>	
 		
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
-        <style>
-        </style>
 
-        <style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <!-- Styles -->
+       <style>
             body {
                 font-family: 'Nunito', sans-serif;
             }
@@ -145,7 +145,6 @@
 		<input type='date' name='date' 
 			value='{{ $action == "store" ? date("Y-m-d") : $game->date; }}'>
 		
-		<!--button type='submit'>Добавить партию в базу</button-->
 		<x-submit :action="$action">
 		</x-submit>
 		<button type='button' onclick='location.href="/games";'>Отмена</button>
@@ -156,7 +155,7 @@
 
 								
 	@if($action == 'store')
-		<script src='js/storeGame.js'></script>		
+		<script src='js/storeGame.js?2'></script>		
 	@else
 		@php
 		$winner;
@@ -173,7 +172,7 @@
 		<script>
 			var winner = "{{ $winner }}";
 		</script>
-		<script src='js/deleteGame.js'></script>
+		<script src='js/deleteGame.js?2'></script>
 	@endif
 	
 </html>

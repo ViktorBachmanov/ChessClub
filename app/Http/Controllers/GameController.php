@@ -86,9 +86,7 @@ class GameController extends Controller
 			
 		}
 		
-		file_put_contents('debug/value.txt', "Игрок: " . $whiteUser->name . "\n", FILE_APPEND);		
 		$whiteUser->evalRating($blackUserRating, $whiteUserScore);
-		file_put_contents('debug/value.txt', "Игрок: " . $blackUser->name . "\n", FILE_APPEND);
 		$blackUser->evalRating($whiteUserRating, $blackUserScore);
 		
 		$game->date = $request->input('date');
@@ -140,7 +138,6 @@ class GameController extends Controller
      */
     public function destroy(/*$id*/)
     {
-		file_put_contents('debug/value.txt', "\ndestroy\n", FILE_APPEND);
 		$game = $this->getLastGame();
         
 		$winnerId = $game->winner;
@@ -148,12 +145,7 @@ class GameController extends Controller
 		$whiteUserId = $game->white;
 		$blackUserId = $game->black;
 		
-		//file_put_contents('debug/value.txt', "Last game: " . $games . "\n", FILE_APPEND);
-		//file_put_contents('debug/value.txt', "\nDelete game with id: " . $games[0]->id . "\n", FILE_APPEND);
-		file_put_contents('debug/value.txt', "white id: " . $whiteUserId . "\n", FILE_APPEND);
-		file_put_contents('debug/value.txt', "black id: " . $blackUserId . "\n", FILE_APPEND);
-		file_put_contents('debug/value.txt', "winner id: " . $winnerId . "\n", FILE_APPEND);
-
+		
 		Game::destroy($game->id);
 		
 		

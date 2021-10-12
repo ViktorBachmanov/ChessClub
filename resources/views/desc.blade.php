@@ -16,6 +16,9 @@
 		<link rel="Stylesheet" href="css/main_table.css?1">
 		
 		<link rel="stylesheet" href="css/prism.css"  />
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		
 		
         <!-- Styles -->
@@ -39,26 +42,8 @@
 				text-align: center;
 				font-size: 125%;
 			}
-			/*
-			code {
-				background-color: rgba(220,225,210,0.5);
-				padding: 0.25rem;
-				border-radius: 0.2rem;
-			}
-			
-			.code {
-				background-color: rgba(220,225,210,0.5);
-				padding: 0.15rem;
-				border-radius: 0.25rem;
-				white-space: pre; 
-				overflow: auto; 
-				float: right;
-			}*/
-			
+						
 			section {
-				/*text-indent: 1rem;*/
-				/*box-shadow: 0 0 2px 2px gray;*/
-				/*background-color: rgba(215, 224, 220, 0.22);*/
 				border-radius: 1rem;
 				margin: 1rem;
 				padding: 1rem;

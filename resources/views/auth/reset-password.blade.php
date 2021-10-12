@@ -9,14 +9,12 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-		
-	
+        	
 		<!-- Styles -->
 		<link rel="Stylesheet" href="/css/auth.css">
         
-		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 		<script>
 			$(document).ready(function() {
 				document.body.style.height = $(window).height() + 'px';

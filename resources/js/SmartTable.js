@@ -1,6 +1,3 @@
-import $ from 'jquery';
-
-
 class SmartTable {
 	constructor() {
 		this._frame = document.getElementById('smart_table');
