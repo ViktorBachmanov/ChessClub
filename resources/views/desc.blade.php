@@ -98,10 +98,6 @@
 				background-color: #686169;
 			}
 			
-			a {
-				text-decoration: underline;
-			}
-			
 			p {
 				margin-top: 1rem;
 				text-indent: 1rem;
@@ -117,7 +113,7 @@
 	
 	
     <body>
-		<h2><a href='/'>Сайт</a> шахматного клуба</h2>
+		<h2><a href='/' style='text-decoration: underline;'>Сайт</a> шахматного клуба</h2>
 		
 		<div>
 		
@@ -219,6 +215,13 @@
 		</section>
 		
 	</div>	
+
+	<div style='margin: 0 auto 3rem; '>
+		<a href='https://github.com/ViktorBachmanov/ChessClub' 
+			style='background-color: blue; color: white; padding: 0.5rem; border-radius: 0.5rem'>
+				Код на GitHub
+		</a>
+	</div>
 		
     </body>
 
