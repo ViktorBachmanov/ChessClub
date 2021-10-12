@@ -9,12 +9,17 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-		<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
-	
+		<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">	
 		
 			
 		<link rel="Stylesheet" href="css/base.css?13">
 		<link rel="Stylesheet" href="css/main_table.css?1">
+
+
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script defer src='js/SmartTable.js?8'></script>
+	    <script defer src='js/header.js?2'></script>
 		
 		
         <!-- Styles -->
@@ -25,17 +30,11 @@
 				
             }
 			
-			
-			
-			
-			/*
-			.sorting::after {
-				content: '\25BC';
-				color: #848579;
-			}*/
         </style>
 		
     </head>
+
+    
 	
 	
     <body style='text-align: center;'>
@@ -51,7 +50,6 @@
 		</div>
     </body>
 
-	<script src='js/SmartTable.js?7'></script>
-	<script src='js/header.js?1'></script>
+	
 	
 </html>

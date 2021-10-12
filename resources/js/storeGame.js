@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import { selectRandomlyUserForColor } from './util.js';
 
 

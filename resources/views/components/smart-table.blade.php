@@ -48,19 +48,6 @@
 		
 		<script>
 			document.querySelector('input[value="{{ $sorting }}"]').checked = true;
-			/*
-			$('input[name="sorting"]').on('click', function() {
-				//document.forms[0].submit();
-				alert('sorting changed');
-			});*/
-			/*
-			let radioArr = document.querySelectorAll('input[name="sorting"]');
-			for(let i = 0; i < radioArr.length; i++) {
-				radioArr[i].addEventListener('click', function() {
-					alert('sorting changed');
-				});
-			}
-			*/
 		</script>
 		
 		<tbody>

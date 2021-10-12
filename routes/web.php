@@ -18,21 +18,11 @@ use App\Http\Controllers\MyNewPasswordController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-Route::get('/', function () {
-    return view('chess');
-});
-*/
+
 Route::get('/', [MainTableController::class, 'index'])->name('table');
 Route::post('/', [MainTableController::class, 'index']);
 
-//Route::post('/select', [MainTableController::class, 'select'])->name('table');
 
-/*
-Route::get('/new', function () {
-    return view('newgame');
-});
-*/
 Route::get('/new', [GameController::class, 'create'])->middleware('auth');
 
 Route::get('/del', [GameController::class, 'delete'])->middleware('auth');
@@ -61,18 +51,10 @@ Route::get('/login', function() {
 	return view('auth.login');
 })->name('login');
 
-/*			
-Route::get('/sent', function() {
-	return view('auth.sent-link', ['status' => true,
-									'email' => 'info@chess']);
-});*/
 
 Route::get('/desc', [MainTableController::class, 'desc']);
 Route::post('/desc', [MainTableController::class, 'desc']);
 
 
 Route::get('/games', [GamesController::class, 'index']);
-
-
-//Route::post('/day', [MainTableController::class, 'day']);
 

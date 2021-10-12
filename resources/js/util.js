@@ -12,13 +12,3 @@ export function selectRandomlyUserForColor(color) {
 	colorOptions[randomId].selected = true;	
 }
 
-
-/*
-function setBodyWidth(elWidth) {
-	document.body.style.width = elWidth + 'px';
-}
-
-function setHeaderWidth(smartTable) {
-	let headerEl = document.getElementById('header');
-	headerEl.style.width = Math.min(smartTable.width, $(window).width()) + 'px';
-}*/

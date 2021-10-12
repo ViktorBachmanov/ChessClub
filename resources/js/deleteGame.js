@@ -1,6 +1,3 @@
-import $ from 'jquery';
-
-
 $('input:not([name="_token"]), select').attr('disabled', 'true');
 					
 
